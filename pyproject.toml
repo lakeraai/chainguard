@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "lakera-langchain-integration"
+version = "0.0.1"
+description = ""
+authors = ["Frawa Vetterli <fv@lakera.ai>"]
+readme = "README.md"
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+requests = "^2.31.0"
+langchain = "^0.0.354"
+langchain-core = "^0.1.5"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
