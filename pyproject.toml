@@ -13,6 +13,9 @@ langchain = "^0.0.354"
 langchain-core = "^0.1.5"
 
 
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.4"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
