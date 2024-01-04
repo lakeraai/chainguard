@@ -61,7 +61,7 @@ class LakeraGuard():
         formatted_input = LakeraGuard.format_to_lakera_guard_input(input)
         lakera_guard_result = self.call_lakera_guard(formatted_input)
         if lakera_guard_result:
-            raise ValueError("Lakera Guard detected prompt injection.")
+            raise ValueError(f"Lakera Guard detected {self.classification_name}.")
         return input
 
     def lakera_guard_with_feedback(self, input: GuardInput) -> bool:
