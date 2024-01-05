@@ -15,6 +15,9 @@ langchain-core = "^0.1.5"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.4.4"
+mypy = "^1.8.0"
+black = "^23.12.1"
+pre-commit = "^3.6.0"
 
 [build-system]
 requires = ["poetry-core"]
