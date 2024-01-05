@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "lakera-langchain-integration"
+name = "lakera-chainguard"
 version = "0.0.1"
-description = ""
+description = "Guard your LangChain applications against prompt injection with Lakera Guard"
 authors = ["Frawa Vetterli <fv@lakera.ai>"]
 readme = "README.md"
 license = "MIT"
@@ -15,6 +15,7 @@ langchain-core = "^0.1.5"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.4.4"
+ipykernel = "^6.28.0"
 
 [build-system]
 requires = ["poetry-core"]
