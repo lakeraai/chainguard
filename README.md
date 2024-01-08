@@ -20,7 +20,7 @@ ChainGuard is a package that provides a simple, reliable way to secure your LLM 
 
 ## Quickstart
 
-The easiest way to secure your LangChain LLM agents is to use the `get_secured_llm()` method of `LakeraChainGuard` to create a secured LLM subclass that you can initialize your agent with.
+The easiest way to secure your LangChain LLM agents is to use the `get_guarded_llm()` method of `LakeraChainGuard` to create a secured LLM subclass that you can initialize your agent with.
 
 1. Obtain a [Lakera Guard API key](https://platform.lakera.ai/account/api-keys)
 2. Install the `lakera_chainguard` package
@@ -38,15 +38,16 @@ The easiest way to secure your LangChain LLM agents is to use the `get_secured_l
     ```python
     # Note: LakeraChainGuard will attempt to automatically use the LAKERA_GUARD_API_KEY environment variable if no `api_key` is provided
     chain_guard = LakeraChainGuard(api_key=os.getenv("LAKERA_GUARD_API_KEY"))
+    openai_api_key = os.getenv("OPENAI_API_KEY")
     ```
-5. Initialize a guarded LLM with the `get_secured_llm()` method:
+5. Initialize a guarded LLM with the `get_guarded_llm()` method:
 
     ```python
     from langchain.llms import OpenAI
 
-    GuardedOpenAILLM = chain_guard.get_secured_llm(OpenAI)
+    GuardedOpenAILLM = chain_guard.get_guarded_llm(OpenAI)
    
-    guarded_llm = GuardedOpenAILLM(temperature=0)
+    guarded_llm = GuardedOpenAILLM(openai_api_key=openai_api_key, temperature=0)
     ```
 6. Initialize an agent using the guarded LLM:
 
@@ -140,8 +141,8 @@ except ValueError as e:
 
 ## Features
 
-With **lakera_langchain_integration**, you can
-- secure LLM and ChatLLM by chaining with a Lakera Guard component so that an error will be raised upon risk detection.
+With **lakera_chainguard**, you can
+- secure LLM and ChatLLM by chaining with a Chain Guard component so that an error will be raised upon risk detection.
   - Alternatively, you can run the Lakera Guard component and the LLM in parallel and decide for yourself what to do upon AI risk detection.
 - secure LLM and ChatLLM by using a secure LLM/ChatLLM subclass.
 - secure your off-the-shelf agent by feeding in a secured LLM subclass.
