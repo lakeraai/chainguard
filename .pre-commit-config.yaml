@@ -33,7 +33,7 @@ repos:
       - id: mypy-all
         name: MyPy (all)
         pass_filenames: false
-        files: src/
+        files: lakera_chainguard/
         entry: poetry run mypy .
         stages: [push]
         language: system
