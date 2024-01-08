@@ -2,7 +2,7 @@
 Welcome, dear contributor. We are glad you are here. This document will guide you through the process of contributing to this project.
 
 # Project Overview
-The package **lakera_langchain_integration** allows you to secure [LangChain](https://www.langchain.com/)'s LLMs and agents against AI security risks (e.g. prompt injections) with [Lakera Guard](https://www.lakera.ai/).
+The package **lakera_chainguard** allows you to secure Large Language Model (LLM) applications and agents built with [LangChain](https://www.langchain.com/) from [prompt injection and jailbreaks](https://platform.lakera.ai/docs/prompt_injection) (and [other risks](https://platform.lakera.ai/docs/api)) with [Lakera Guard](https://www.lakera.ai/).
 
 # How to Contribute
 ## Guidelines
@@ -20,14 +20,10 @@ Fork the GitHub repository of the project.
 
 ## Project Setup
 ### Python
-The Python environment management is done via [hatch](https://github.com/pypa/hatch). Any Python-related command must therefore be run using `hatch -e dev run <command>`. This will ensure that the correct environment is used. If the environment is not set up, the command will take care of installing all required dependencies, so you don't need to worry about that.
-
-<!---
-In particular, if you need to test something related to canica, you will need to run `hatch -e dev run jupyter lab`.
---->
+The Python environment management is done via [poetry](https://python-poetry.org/). Any Python-related command must therefore be run using `poetry run <command>`. This will ensure that the correct environment is used. If the environment is not set up, the command will take care of installing all required dependencies, so you don't need to worry about that.
 
 ### Pre-Commit Hooks
-We use [pre-commit](https://pre-commit.com/) to run a series of checks on the code before it is committed. This ensures that the code is formatted correctly, that the tests pass, and that the code is properly typed. To set up the pre-commit hooks, run `hatch -e dev run pre-commit install` in the root of the repository.
+We use [pre-commit](https://pre-commit.com/) to run a series of checks on the code before it is committed. This ensures that the code is formatted correctly, that the tests pass, and that the code is properly typed. To set up the pre-commit hooks, run `poetry run pre-commit install` in the root of the repository.
 
 ## Submitting a Pull Request
 When you submit a Pull Request, please make sure to include a detailed description of the changes you made, and to reference any issues that are related to the Pull Request. We will review your Pull Request and merge it if it is in line with our goals for the project.
