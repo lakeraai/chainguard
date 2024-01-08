@@ -1,14 +1,15 @@
-import requests
 import os
-from typing import List, Union, Any, Optional, Type, Dict, Tuple
-from langchain.schema import BaseMessage, PromptValue
-from langchain_core.messages import HumanMessage, SystemMessage, AIMessage
-from langchain_core.language_models import BaseLLM, BaseChatModel
-from langchain_core.outputs import LLMResult, ChatResult
-from langchain_core.callbacks import CallbackManagerForLLMRun
+from typing import Any, Dict, List, Optional, Tuple, Type, Union
+
+import requests
 from langchain.agents import AgentExecutor
+from langchain.schema import BaseMessage, PromptValue
 from langchain.tools import BaseTool
 from langchain_core.agents import AgentAction, AgentFinish, AgentStep
+from langchain_core.callbacks import CallbackManagerForLLMRun
+from langchain_core.language_models import BaseChatModel, BaseLLM
+from langchain_core.messages import AIMessage, HumanMessage, SystemMessage
+from langchain_core.outputs import ChatResult, LLMResult
 
 GuardInput = Union[str, List[BaseMessage], PromptValue]
 NextStepOutput = List[Union[AgentFinish, AgentAction, AgentStep]]
@@ -17,24 +18,26 @@ NextStepOutput = List[Union[AgentFinish, AgentAction, AgentStep]]
 session = requests.Session()  # Allows persistent connection (create only once)
 
 
-class LakeraGuard:
+class LakeraChainGuard:
     def __init__(
         self,
         api_key: str = os.environ.get("LAKERA_GUARD_API_KEY", ""),
-        classification_name: str = "prompt_injection",
+        # Learn more about the other available classifiers: https://platform.lakera.ai/docs/api
+        classifier: str = "prompt_injection",
     ):
         self.api_key = api_key
-        # Check out other endpoint possibilities apart from prompt_injection at https://platform.lakera.ai/docs/api
-        self.classification_name = classification_name
+        self.classifier = classifier
 
     def call_lakera_guard(self, query: Union[str, list]) -> bool:
         response = session.post(
-            f"https://api.lakera.ai/v1/{self.classification_name}",
+            f"https://api.lakera.ai/v1/{self.classifier}",
             json={"input": query},
             headers={"Authorization": f"Bearer {self.api_key}"},
         )
         answer = response.json()
-        result = answer["results"][0]["categories"][self.classification_name]
+
+        result = answer["results"][0]["categories"][self.classifier]
+
         return result
 
     @staticmethod
@@ -53,6 +56,7 @@ class LakeraGuard:
                     {"role": "user", "content": ""},
                     {"role": "assistant", "content": ""},
                 ]
+
                 # For system, human, assistant, we put the last message of each type in the guard input
                 for message in input:
                     if not isinstance(
@@ -70,24 +74,29 @@ class LakeraGuard:
                 return str(input)
 
     def detect(self, input: GuardInput) -> GuardInput:
-        formatted_input = LakeraGuard.format_to_lakera_guard_input(input)
+        formatted_input = LakeraChainGuard.format_to_lakera_guard_input(input)
+
         lakera_guard_result = self.call_lakera_guard(formatted_input)
+
         if lakera_guard_result:
-            raise ValueError(f"Lakera Guard detected {self.classification_name}.")
+            raise ValueError(f"Lakera Guard detected {self.classifier}.")
+
         return input
 
     def detect_with_feedback(self, input: GuardInput) -> bool:
-        formatted_input = LakeraGuard.format_to_lakera_guard_input(input)
+        formatted_input = LakeraChainGuard.format_to_lakera_guard_input(input)
+
         lakera_guard_result = self.call_lakera_guard(formatted_input)
+
         return lakera_guard_result
 
-    def get_secured_llm(self, type_of_llm: Type[BaseLLM]):
+    def get_guarded_llm(self, type_of_llm: Type[BaseLLM]):
         lakera_guard_instance = self
 
-        class SecuredLLM(type_of_llm):
+        class GuardedLLM(type_of_llm):
             @property
             def _llm_type(self) -> str:
-                return "guard_secured_" + super()._llm_type
+                return "guarded_" + super()._llm_type
 
             def _generate(
                 self,
@@ -96,17 +105,18 @@ class LakeraGuard:
             ) -> LLMResult:
                 for prompt in prompts:
                     lakera_guard_instance.detect(prompt)
+
                 return super()._generate(prompts, **kwargs)
 
-        return SecuredLLM
+        return GuardedLLM
 
-    def get_secured_chat_llm(self, type_of_chat_llm: Type[BaseChatModel]):
+    def get_guarded_chat_llm(self, type_of_chat_llm: Type[BaseChatModel]):
         lakera_guard_instance = self
 
-        class SecuredChatLLM(type_of_chat_llm):
+        class GuardedChatLLM(type_of_chat_llm):
             @property
             def _llm_type(self) -> str:
-                return "guard_secured_" + super()._llm_type
+                return "guarded_" + super()._llm_type
 
             def _generate(
                 self,
@@ -116,14 +126,15 @@ class LakeraGuard:
                 **kwargs: Any,
             ) -> ChatResult:
                 lakera_guard_instance.detect(messages)
+
                 return super()._generate(messages, stop, run_manager, **kwargs)
 
-        return SecuredChatLLM
+        return GuardedChatLLM
 
-    def get_secured_agent_executor(self):
+    def get_guarded_agent_executor(self):
         lakera_guard_instance = self
 
-        class SecuredAgentExecutor(AgentExecutor):
+        class GuardedAgentExecutor(AgentExecutor):
             def _take_next_step(
                 self,
                 name_to_tool_map: Dict[str, BaseTool],
@@ -135,6 +146,7 @@ class LakeraGuard:
             ):
                 for val in inputs.values():
                     lakera_guard_instance.detect(val)
+
                 res = super()._take_next_step(
                     name_to_tool_map,
                     color_mapping,
@@ -143,8 +155,10 @@ class LakeraGuard:
                     *args,
                     **kwargs,
                 )
+
                 for act in intermediate_steps:
                     lakera_guard_instance.detect(act[1])
+
                 return res
 
-        return SecuredAgentExecutor
+        return GuardedAgentExecutor
