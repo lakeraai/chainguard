@@ -1,5 +1,6 @@
 import os
 from typing import Any, Dict, List, Optional, Tuple, Type, Union
+import warnings
 
 import requests
 from langchain.agents import AgentExecutor
@@ -15,6 +16,14 @@ GuardInput = Union[str, List[BaseMessage], PromptValue]
 NextStepOutput = List[Union[AgentFinish, AgentAction, AgentStep]]
 
 
+class LakeraGuardError(RuntimeError):
+    pass
+
+
+class LakeraGuardWarning(RuntimeWarning):
+    pass
+
+
 session = requests.Session()  # Allows persistent connection (create only once)
 
 
@@ -23,6 +32,7 @@ class LakeraChainGuard:
         self,
         api_key: str = os.environ.get("LAKERA_GUARD_API_KEY", ""),
         classifier: str = "prompt_injection",
+        raise_error: bool = True,
     ):
         """
         Contains different methods that help with guarding LLMs and agents in LangChain.
@@ -31,13 +41,16 @@ class LakeraChainGuard:
             api_key: API key for Lakera Guard
             classifier: which AI security risk you want to guard against, see also
                 classifiers available here: https://platform.lakera.ai/docs/api
+            raise_error: whether to raise an error or a warning if the classifier
+                detects AI security risk
         Returns:
 
         """
         self.api_key = api_key
         self.classifier = classifier
+        self.raise_error = raise_error
 
-    def call_lakera_guard(self, query: Union[str, list]) -> bool:
+    def call_lakera_guard(self, query: Union[str, list[dict[str, str]]]) -> bool:
         """
         Makes an API request to the Lakera Guard API endpoint specified in
         self.classifier.
@@ -57,10 +70,9 @@ class LakeraChainGuard:
         result = answer["results"][0]["categories"][self.classifier]
         return result
 
-    @staticmethod
     def format_to_lakera_guard_input(
-        input: GuardInput,
-    ) -> Union[str, List[dict[str, str]]]:
+        self, input: GuardInput
+    ) -> Union[str, list[dict[str, str]]]:
         """
         Formats the input into LangChain's LLMs or ChatLLMs to be compatible as Lakera
         Guard input.
@@ -70,7 +82,6 @@ class LakeraChainGuard:
         Returns:
             Parameter that follows Lakera Guard's input format
         """
-        # is input string?
         if isinstance(input, str):
             return input
         else:
@@ -95,6 +106,8 @@ class LakeraChainGuard:
                         formatted_input[1]["content"] = message.content
                     else:  # must be AIMessage
                         formatted_input[2]["content"] = message.content
+                if self.classifier != "prompt_injection":
+                    return formatted_input[1]["content"]
                 return formatted_input
             else:
                 return str(input)
@@ -109,12 +122,18 @@ class LakeraChainGuard:
         Returns:
             input unchanged
         Raises:
-            ValueError if input contains AI security risk specified in self.classifier
+            either LakeraGuardError or LakeraGuardWarning if input contains AI
+            security risk detected depending on self.raise_error True or False
         """
-        formatted_input = LakeraChainGuard.format_to_lakera_guard_input(input)
+        formatted_input = self.format_to_lakera_guard_input(input)
         lakera_guard_result = self.call_lakera_guard(formatted_input)
         if lakera_guard_result:
-            raise ValueError(f"Lakera Guard detected {self.classifier}.")
+            if self.raise_error:
+                raise LakeraGuardError(f"Lakera Guard detected {self.classifier}.")
+            else:
+                warnings.warn(
+                    LakeraGuardWarning(f"Lakera Guard detected {self.classifier}.")
+                )
         return input
 
     def detect_with_feedback(self, input: GuardInput) -> bool:
@@ -127,7 +146,7 @@ class LakeraChainGuard:
         Returns:
             detection result of AI security risk specified in self.classifier
         """
-        formatted_input = LakeraChainGuard.format_to_lakera_guard_input(input)
+        formatted_input = self.format_to_lakera_guard_input(input)
         lakera_guard_result = self.call_lakera_guard(formatted_input)
         return lakera_guard_result
 
