@@ -1,0 +1,2354 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="..">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.3">
+    
+    
+      
+        <title>Reference - Lakera ChainGuard Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.50c56a3b.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lakera_chainguard.lakera_chainguard" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Lakera ChainGuard Docs" class="md-header__button md-logo" aria-label="Lakera ChainGuard Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Lakera ChainGuard Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Reference
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Lakera ChainGuard Docs" class="md-nav__button md-logo" aria-label="Lakera ChainGuard Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Lakera ChainGuard Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Welcome to Lakera ChainGuard
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Reference
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Reference
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#lakera_chainguard.lakera_chainguard" class="md-nav__link">
+    <span class="md-ellipsis">
+      lakera_chainguard
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lakera_chainguard.lakera_chainguard.LakeraChainGuard" class="md-nav__link">
+    <span class="md-ellipsis">
+      LakeraChainGuard
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="LakeraChainGuard">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lakera_chainguard.lakera_chainguard.LakeraChainGuard.__init__" class="md-nav__link">
+    <span class="md-ellipsis">
+      __init__
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lakera_chainguard.lakera_chainguard.LakeraChainGuard.call_lakera_guard" class="md-nav__link">
+    <span class="md-ellipsis">
+      call_lakera_guard
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lakera_chainguard.lakera_chainguard.LakeraChainGuard.detect" class="md-nav__link">
+    <span class="md-ellipsis">
+      detect
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lakera_chainguard.lakera_chainguard.LakeraChainGuard.detect_with_response" class="md-nav__link">
+    <span class="md-ellipsis">
+      detect_with_response
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lakera_chainguard.lakera_chainguard.LakeraChainGuard.format_to_lakera_guard_input" class="md-nav__link">
+    <span class="md-ellipsis">
+      format_to_lakera_guard_input
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lakera_chainguard.lakera_chainguard.LakeraChainGuard.get_guarded_agent_executor" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_guarded_agent_executor
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lakera_chainguard.lakera_chainguard.LakeraChainGuard.get_guarded_chat_llm" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_guarded_chat_llm
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lakera_chainguard.lakera_chainguard.LakeraChainGuard.get_guarded_llm" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_guarded_llm
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lakera_chainguard.lakera_chainguard.LakeraGuardError" class="md-nav__link">
+    <span class="md-ellipsis">
+      LakeraGuardError
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="LakeraGuardError">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lakera_chainguard.lakera_chainguard.LakeraGuardError.__init__" class="md-nav__link">
+    <span class="md-ellipsis">
+      __init__
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lakera_chainguard.lakera_chainguard.LakeraGuardWarning" class="md-nav__link">
+    <span class="md-ellipsis">
+      LakeraGuardWarning
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="LakeraGuardWarning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lakera_chainguard.lakera_chainguard.LakeraGuardWarning.__init__" class="md-nav__link">
+    <span class="md-ellipsis">
+      __init__
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#lakera_chainguard.lakera_chainguard" class="md-nav__link">
+    <span class="md-ellipsis">
+      lakera_chainguard
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lakera_chainguard.lakera_chainguard.LakeraChainGuard" class="md-nav__link">
+    <span class="md-ellipsis">
+      LakeraChainGuard
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="LakeraChainGuard">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lakera_chainguard.lakera_chainguard.LakeraChainGuard.__init__" class="md-nav__link">
+    <span class="md-ellipsis">
+      __init__
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lakera_chainguard.lakera_chainguard.LakeraChainGuard.call_lakera_guard" class="md-nav__link">
+    <span class="md-ellipsis">
+      call_lakera_guard
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lakera_chainguard.lakera_chainguard.LakeraChainGuard.detect" class="md-nav__link">
+    <span class="md-ellipsis">
+      detect
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lakera_chainguard.lakera_chainguard.LakeraChainGuard.detect_with_response" class="md-nav__link">
+    <span class="md-ellipsis">
+      detect_with_response
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lakera_chainguard.lakera_chainguard.LakeraChainGuard.format_to_lakera_guard_input" class="md-nav__link">
+    <span class="md-ellipsis">
+      format_to_lakera_guard_input
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lakera_chainguard.lakera_chainguard.LakeraChainGuard.get_guarded_agent_executor" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_guarded_agent_executor
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lakera_chainguard.lakera_chainguard.LakeraChainGuard.get_guarded_chat_llm" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_guarded_chat_llm
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lakera_chainguard.lakera_chainguard.LakeraChainGuard.get_guarded_llm" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_guarded_llm
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lakera_chainguard.lakera_chainguard.LakeraGuardError" class="md-nav__link">
+    <span class="md-ellipsis">
+      LakeraGuardError
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="LakeraGuardError">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lakera_chainguard.lakera_chainguard.LakeraGuardError.__init__" class="md-nav__link">
+    <span class="md-ellipsis">
+      __init__
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lakera_chainguard.lakera_chainguard.LakeraGuardWarning" class="md-nav__link">
+    <span class="md-ellipsis">
+      LakeraGuardWarning
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="LakeraGuardWarning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lakera_chainguard.lakera_chainguard.LakeraGuardWarning.__init__" class="md-nav__link">
+    <span class="md-ellipsis">
+      __init__
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>Reference</h1>
+
+<p>This part of the project documentation focuses on
+an <strong>information-oriented</strong> approach. Use it as a
+reference for the technical implementation of the
+<code>lakera_chainguard</code> project code.</p>
+
+
+<div class="doc doc-object doc-module">
+
+
+
+<a id="lakera_chainguard.lakera_chainguard"></a>
+  <div class="doc doc-contents first">
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="lakera_chainguard.lakera_chainguard.LakeraChainGuard" class="doc doc-heading">
+          <code>LakeraChainGuard</code>
+
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+
+
+            <details class="quote">
+              <summary>Source code in <code>lakera_chainguard/lakera_chainguard.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 52</span>
+<span class="normal"> 53</span>
+<span class="normal"> 54</span>
+<span class="normal"> 55</span>
+<span class="normal"> 56</span>
+<span class="normal"> 57</span>
+<span class="normal"> 58</span>
+<span class="normal"> 59</span>
+<span class="normal"> 60</span>
+<span class="normal"> 61</span>
+<span class="normal"> 62</span>
+<span class="normal"> 63</span>
+<span class="normal"> 64</span>
+<span class="normal"> 65</span>
+<span class="normal"> 66</span>
+<span class="normal"> 67</span>
+<span class="normal"> 68</span>
+<span class="normal"> 69</span>
+<span class="normal"> 70</span>
+<span class="normal"> 71</span>
+<span class="normal"> 72</span>
+<span class="normal"> 73</span>
+<span class="normal"> 74</span>
+<span class="normal"> 75</span>
+<span class="normal"> 76</span>
+<span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span>
+<span class="normal">131</span>
+<span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span>
+<span class="normal">154</span>
+<span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span>
+<span class="normal">160</span>
+<span class="normal">161</span>
+<span class="normal">162</span>
+<span class="normal">163</span>
+<span class="normal">164</span>
+<span class="normal">165</span>
+<span class="normal">166</span>
+<span class="normal">167</span>
+<span class="normal">168</span>
+<span class="normal">169</span>
+<span class="normal">170</span>
+<span class="normal">171</span>
+<span class="normal">172</span>
+<span class="normal">173</span>
+<span class="normal">174</span>
+<span class="normal">175</span>
+<span class="normal">176</span>
+<span class="normal">177</span>
+<span class="normal">178</span>
+<span class="normal">179</span>
+<span class="normal">180</span>
+<span class="normal">181</span>
+<span class="normal">182</span>
+<span class="normal">183</span>
+<span class="normal">184</span>
+<span class="normal">185</span>
+<span class="normal">186</span>
+<span class="normal">187</span>
+<span class="normal">188</span>
+<span class="normal">189</span>
+<span class="normal">190</span>
+<span class="normal">191</span>
+<span class="normal">192</span>
+<span class="normal">193</span>
+<span class="normal">194</span>
+<span class="normal">195</span>
+<span class="normal">196</span>
+<span class="normal">197</span>
+<span class="normal">198</span>
+<span class="normal">199</span>
+<span class="normal">200</span>
+<span class="normal">201</span>
+<span class="normal">202</span>
+<span class="normal">203</span>
+<span class="normal">204</span>
+<span class="normal">205</span>
+<span class="normal">206</span>
+<span class="normal">207</span>
+<span class="normal">208</span>
+<span class="normal">209</span>
+<span class="normal">210</span>
+<span class="normal">211</span>
+<span class="normal">212</span>
+<span class="normal">213</span>
+<span class="normal">214</span>
+<span class="normal">215</span>
+<span class="normal">216</span>
+<span class="normal">217</span>
+<span class="normal">218</span>
+<span class="normal">219</span>
+<span class="normal">220</span>
+<span class="normal">221</span>
+<span class="normal">222</span>
+<span class="normal">223</span>
+<span class="normal">224</span>
+<span class="normal">225</span>
+<span class="normal">226</span>
+<span class="normal">227</span>
+<span class="normal">228</span>
+<span class="normal">229</span>
+<span class="normal">230</span>
+<span class="normal">231</span>
+<span class="normal">232</span>
+<span class="normal">233</span>
+<span class="normal">234</span>
+<span class="normal">235</span>
+<span class="normal">236</span>
+<span class="normal">237</span>
+<span class="normal">238</span>
+<span class="normal">239</span>
+<span class="normal">240</span>
+<span class="normal">241</span>
+<span class="normal">242</span>
+<span class="normal">243</span>
+<span class="normal">244</span>
+<span class="normal">245</span>
+<span class="normal">246</span>
+<span class="normal">247</span>
+<span class="normal">248</span>
+<span class="normal">249</span>
+<span class="normal">250</span>
+<span class="normal">251</span>
+<span class="normal">252</span>
+<span class="normal">253</span>
+<span class="normal">254</span>
+<span class="normal">255</span>
+<span class="normal">256</span>
+<span class="normal">257</span>
+<span class="normal">258</span>
+<span class="normal">259</span>
+<span class="normal">260</span>
+<span class="normal">261</span>
+<span class="normal">262</span>
+<span class="normal">263</span>
+<span class="normal">264</span>
+<span class="normal">265</span>
+<span class="normal">266</span>
+<span class="normal">267</span>
+<span class="normal">268</span>
+<span class="normal">269</span>
+<span class="normal">270</span>
+<span class="normal">271</span>
+<span class="normal">272</span>
+<span class="normal">273</span>
+<span class="normal">274</span>
+<span class="normal">275</span>
+<span class="normal">276</span>
+<span class="normal">277</span>
+<span class="normal">278</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">LakeraChainGuard</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">api_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;LAKERA_GUARD_API_KEY&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">),</span>
+        <span class="n">classifier</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;prompt_injection&quot;</span><span class="p">,</span>
+        <span class="n">raise_error</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Contains different methods that help with guarding LLMs and agents in LangChain.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            api_key: API key for Lakera Guard</span>
+<span class="sd">            classifier: which AI security risk you want to guard against, see also</span>
+<span class="sd">                classifiers available here: https://platform.lakera.ai/docs/api</span>
+<span class="sd">            raise_error: whether to raise an error or a warning if the classifier</span>
+<span class="sd">                detects AI security risk</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">api_key</span> <span class="o">=</span> <span class="n">api_key</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">classifier</span> <span class="o">=</span> <span class="n">classifier</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">raise_error</span> <span class="o">=</span> <span class="n">raise_error</span>
+
+    <span class="k">def</span> <span class="nf">call_lakera_guard</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">query</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]])</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Makes an API request to the Lakera Guard API endpoint specified in</span>
+<span class="sd">        self.classifier.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            query: User prompt or list of message containing system, user</span>
+<span class="sd">                and assistant roles.</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            The classifier&#39;s API response as dict</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;https://api.lakera.ai/v1/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">classifier</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="n">json</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;input&quot;</span><span class="p">:</span> <span class="n">query</span><span class="p">},</span>
+            <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">api_key</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">},</span>
+        <span class="p">)</span>
+        <span class="n">answer</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+        <span class="c1"># result = answer[&quot;results&quot;][0][&quot;categories&quot;][self.classifier]</span>
+        <span class="k">return</span> <span class="n">answer</span>
+
+    <span class="k">def</span> <span class="nf">format_to_lakera_guard_input</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="nb">input</span><span class="p">:</span> <span class="n">GuardInput</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Formats the input into LangChain&#39;s LLMs or ChatLLMs to be compatible as Lakera</span>
+<span class="sd">        Guard input.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            input: Object that follows LangChain&#39;s LLM or ChatLLM input format</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            Object that follows Lakera Guard&#39;s input format</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="k">return</span> <span class="nb">input</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">PromptValue</span><span class="p">):</span>
+                <span class="nb">input</span> <span class="o">=</span> <span class="nb">input</span><span class="o">.</span><span class="n">to_messages</span><span class="p">()</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">List</span><span class="p">):</span>
+                <span class="n">formatted_input</span> <span class="o">=</span> <span class="p">[</span>
+                    <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;system&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">},</span>
+                    <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">},</span>
+                    <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;assistant&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">},</span>
+                <span class="p">]</span>
+                <span class="c1"># For system, human, assistant, we put the last message of each</span>
+                <span class="c1"># type in the guard input</span>
+                <span class="k">for</span> <span class="n">message</span> <span class="ow">in</span> <span class="nb">input</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span>
+                        <span class="n">message</span><span class="p">,</span> <span class="p">(</span><span class="n">HumanMessage</span><span class="p">,</span> <span class="n">SystemMessage</span><span class="p">,</span> <span class="n">AIMessage</span><span class="p">)</span>
+                    <span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">content</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+                        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Input type not supported by Lakera Guard.&quot;</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">SystemMessage</span><span class="p">):</span>
+                        <span class="n">formatted_input</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;content&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">message</span><span class="o">.</span><span class="n">content</span>
+                    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">HumanMessage</span><span class="p">):</span>
+                        <span class="n">formatted_input</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="s2">&quot;content&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">message</span><span class="o">.</span><span class="n">content</span>
+                    <span class="k">else</span><span class="p">:</span>  <span class="c1"># must be AIMessage</span>
+                        <span class="n">formatted_input</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="s2">&quot;content&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">message</span><span class="o">.</span><span class="n">content</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">classifier</span> <span class="o">!=</span> <span class="s2">&quot;prompt_injection&quot;</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="n">formatted_input</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="s2">&quot;content&quot;</span><span class="p">]</span>
+                <span class="k">return</span> <span class="n">formatted_input</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">detect</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">input</span><span class="p">:</span> <span class="n">GuardInput</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">GuardInput</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Raises error if input contains AI security risk specified in self.classifier.</span>
+<span class="sd">        Otherwise, lets input through.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            input: input to check regarding AI security risk</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            input unchanged</span>
+<span class="sd">        Raises:</span>
+<span class="sd">            either LakeraGuardError or LakeraGuardWarning if input contains AI</span>
+<span class="sd">            security risk detected depending on self.raise_error True or False</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">formatted_input</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">format_to_lakera_guard_input</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
+        <span class="n">lakera_guard_response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">call_lakera_guard</span><span class="p">(</span><span class="n">formatted_input</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">lakera_guard_response</span><span class="p">[</span><span class="s2">&quot;results&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;categories&quot;</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">classifier</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">raise_error</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">LakeraGuardError</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;Lakera Guard detected </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">classifier</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">,</span> <span class="n">lakera_guard_response</span>
+                <span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+                    <span class="n">LakeraGuardWarning</span><span class="p">(</span>
+                        <span class="sa">f</span><span class="s2">&quot;Lakera Guard detected </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">classifier</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">,</span>
+                        <span class="n">lakera_guard_response</span><span class="p">,</span>
+                    <span class="p">)</span>
+                <span class="p">)</span>
+        <span class="k">return</span> <span class="nb">input</span>
+
+    <span class="k">def</span> <span class="nf">detect_with_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">input</span><span class="p">:</span> <span class="n">GuardInput</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns detection result of AI security risk specified in self.classifier</span>
+<span class="sd">        with regard to the input.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            input: input to check regarding AI security risk</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            detection result of AI security risk specified in self.classifier</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">formatted_input</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">format_to_lakera_guard_input</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
+        <span class="n">lakera_guard_response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">call_lakera_guard</span><span class="p">(</span><span class="n">formatted_input</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">lakera_guard_response</span>
+
+    <span class="k">def</span> <span class="nf">get_guarded_llm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">type_of_llm</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="n">BaseLLM</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Type</span><span class="p">[</span><span class="s2">&quot;GuardedLLM&quot;</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates a subclass of type_of_llm where the input to the LLM always gets</span>
+<span class="sd">        checked w.r.t. AI security risk specified in self.classifier.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            type_of_llm: any type of LangChain&#39;s LLMs</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            Guarded subclass of type_of_llm</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">lakera_guard_instance</span> <span class="o">=</span> <span class="bp">self</span>
+
+        <span class="k">class</span> <span class="nc">GuardedLLM</span><span class="p">(</span><span class="n">type_of_llm</span><span class="p">):</span>
+            <span class="nd">@property</span>
+            <span class="k">def</span> <span class="nf">_llm_type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+                <span class="k">return</span> <span class="s2">&quot;guarded_&quot;</span> <span class="o">+</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">_llm_type</span>
+
+            <span class="k">def</span> <span class="nf">_generate</span><span class="p">(</span>
+                <span class="bp">self</span><span class="p">,</span>
+                <span class="n">prompts</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+                <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
+            <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">LLMResult</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">prompt</span> <span class="ow">in</span> <span class="n">prompts</span><span class="p">:</span>
+                    <span class="n">lakera_guard_instance</span><span class="o">.</span><span class="n">detect</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
+
+                <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">_generate</span><span class="p">(</span><span class="n">prompts</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">GuardedLLM</span>
+
+    <span class="k">def</span> <span class="nf">get_guarded_chat_llm</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">type_of_chat_llm</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="n">BaseChatModel</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Type</span><span class="p">[</span><span class="s2">&quot;GuardedChatLLM&quot;</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates a subclass of type_of_chat_llm in which the input to the ChatLLM always</span>
+<span class="sd">          gets checked w.r.t. AI security risk specified in self.classifier.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            type_of_llm: any type of LangChain&#39;s ChatLLMs</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            Guarded subclass of type_of_llm</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">lakera_guard_instance</span> <span class="o">=</span> <span class="bp">self</span>
+
+        <span class="k">class</span> <span class="nc">GuardedChatLLM</span><span class="p">(</span><span class="n">type_of_chat_llm</span><span class="p">):</span>
+            <span class="nd">@property</span>
+            <span class="k">def</span> <span class="nf">_llm_type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+                <span class="k">return</span> <span class="s2">&quot;guarded_&quot;</span> <span class="o">+</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">_llm_type</span>
+
+            <span class="k">def</span> <span class="nf">_generate</span><span class="p">(</span>
+                <span class="bp">self</span><span class="p">,</span>
+                <span class="n">messages</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">BaseMessage</span><span class="p">],</span>
+                <span class="n">stop</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                <span class="n">run_manager</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">CallbackManagerForLLMRun</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
+            <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ChatResult</span><span class="p">:</span>
+                <span class="n">lakera_guard_instance</span><span class="o">.</span><span class="n">detect</span><span class="p">(</span><span class="n">messages</span><span class="p">)</span>
+                <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">_generate</span><span class="p">(</span><span class="n">messages</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">run_manager</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">GuardedChatLLM</span>
+
+    <span class="k">def</span> <span class="nf">get_guarded_agent_executor</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Type</span><span class="p">[</span><span class="s2">&quot;GuardedAgentExecutor&quot;</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates a subclass of the AgentExecutor in which the input to the LLM that the</span>
+<span class="sd">        AgentExecutor is initialized with gets checked w.r.t. AI security risk specified</span>
+<span class="sd">        in self.classifier.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Guarded AgentExecutor subclass</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">lakera_guard_instance</span> <span class="o">=</span> <span class="bp">self</span>
+
+        <span class="k">class</span> <span class="nc">GuardedAgentExecutor</span><span class="p">(</span><span class="n">AgentExecutor</span><span class="p">):</span>
+            <span class="k">def</span> <span class="nf">_take_next_step</span><span class="p">(</span>
+                <span class="bp">self</span><span class="p">,</span>
+                <span class="n">name_to_tool_map</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">BaseTool</span><span class="p">],</span>
+                <span class="n">color_mapping</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span>
+                <span class="n">inputs</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span>
+                <span class="n">intermediate_steps</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="n">AgentAction</span><span class="p">,</span> <span class="nb">str</span><span class="p">]],</span>
+                <span class="o">*</span><span class="n">args</span><span class="p">,</span>
+                <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+            <span class="p">):</span>
+                <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">inputs</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+                    <span class="n">lakera_guard_instance</span><span class="o">.</span><span class="n">detect</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+
+                <span class="n">res</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">_take_next_step</span><span class="p">(</span>
+                    <span class="n">name_to_tool_map</span><span class="p">,</span>
+                    <span class="n">color_mapping</span><span class="p">,</span>
+                    <span class="n">inputs</span><span class="p">,</span>
+                    <span class="n">intermediate_steps</span><span class="p">,</span>
+                    <span class="o">*</span><span class="n">args</span><span class="p">,</span>
+                    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+                <span class="p">)</span>
+
+                <span class="k">for</span> <span class="n">act</span> <span class="ow">in</span> <span class="n">intermediate_steps</span><span class="p">:</span>
+                    <span class="n">lakera_guard_instance</span><span class="o">.</span><span class="n">detect</span><span class="p">(</span><span class="n">act</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+                <span class="k">return</span> <span class="n">res</span>
+
+        <span class="k">return</span> <span class="n">GuardedAgentExecutor</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="lakera_chainguard.lakera_chainguard.LakeraChainGuard.__init__" class="doc doc-heading">
+          <code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;LAKERA_GUARD_API_KEY&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">),</span> <span class="n">classifier</span><span class="o">=</span><span class="s1">&#39;prompt_injection&#39;</span><span class="p">,</span> <span class="n">raise_error</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Contains different methods that help with guarding LLMs and agents in LangChain.</p>
+
+
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>api_key</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>API key for Lakera Guard</p>
+            </div>
+          </td>
+          <td>
+                <code><span title="os.environ.get">get</span>(&#39;LAKERA_GUARD_API_KEY&#39;, &#39;&#39;)</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>classifier</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>which AI security risk you want to guard against, see also
+classifiers available here: https://platform.lakera.ai/docs/api</p>
+            </div>
+          </td>
+          <td>
+                <code>&#39;prompt_injection&#39;</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>raise_error</code></td>
+          <td>
+                <code>bool</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>whether to raise an error or a warning if the classifier
+detects AI security risk</p>
+            </div>
+          </td>
+          <td>
+                <code>True</code>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+      <p>Returns:
+    None</p>
+
+          <details class="quote">
+            <summary>Source code in <code>lakera_chainguard/lakera_chainguard.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span>
+    <span class="n">api_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;LAKERA_GUARD_API_KEY&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">),</span>
+    <span class="n">classifier</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;prompt_injection&quot;</span><span class="p">,</span>
+    <span class="n">raise_error</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Contains different methods that help with guarding LLMs and agents in LangChain.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        api_key: API key for Lakera Guard</span>
+<span class="sd">        classifier: which AI security risk you want to guard against, see also</span>
+<span class="sd">            classifiers available here: https://platform.lakera.ai/docs/api</span>
+<span class="sd">        raise_error: whether to raise an error or a warning if the classifier</span>
+<span class="sd">            detects AI security risk</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        None</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">api_key</span> <span class="o">=</span> <span class="n">api_key</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">classifier</span> <span class="o">=</span> <span class="n">classifier</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">raise_error</span> <span class="o">=</span> <span class="n">raise_error</span>
+</code></pre></div></td></tr></table></div>
+          </details>
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="lakera_chainguard.lakera_chainguard.LakeraChainGuard.call_lakera_guard" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">call_lakera_guard</span><span class="p">(</span><span class="n">query</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Makes an API request to the Lakera Guard API endpoint specified in
+self.classifier.</p>
+
+
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>query</code></td>
+          <td>
+                <code><span title="typing.Union">Union</span>[str, list[dict[str, str]]]</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>User prompt or list of message containing system, user
+and assistant roles.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+      <p>Returns:
+    The classifier's API response as dict</p>
+
+          <details class="quote">
+            <summary>Source code in <code>lakera_chainguard/lakera_chainguard.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span>
+<span class="normal">78</span>
+<span class="normal">79</span>
+<span class="normal">80</span>
+<span class="normal">81</span>
+<span class="normal">82</span>
+<span class="normal">83</span>
+<span class="normal">84</span>
+<span class="normal">85</span>
+<span class="normal">86</span>
+<span class="normal">87</span>
+<span class="normal">88</span>
+<span class="normal">89</span>
+<span class="normal">90</span>
+<span class="normal">91</span>
+<span class="normal">92</span>
+<span class="normal">93</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">call_lakera_guard</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">query</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]])</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Makes an API request to the Lakera Guard API endpoint specified in</span>
+<span class="sd">    self.classifier.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        query: User prompt or list of message containing system, user</span>
+<span class="sd">            and assistant roles.</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        The classifier&#39;s API response as dict</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;https://api.lakera.ai/v1/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">classifier</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="n">json</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;input&quot;</span><span class="p">:</span> <span class="n">query</span><span class="p">},</span>
+        <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">api_key</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">},</span>
+    <span class="p">)</span>
+    <span class="n">answer</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+    <span class="c1"># result = answer[&quot;results&quot;][0][&quot;categories&quot;][self.classifier]</span>
+    <span class="k">return</span> <span class="n">answer</span>
+</code></pre></div></td></tr></table></div>
+          </details>
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="lakera_chainguard.lakera_chainguard.LakeraChainGuard.detect" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">detect</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Raises error if input contains AI security risk specified in self.classifier.
+Otherwise, lets input through.</p>
+
+
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>input</code></td>
+          <td>
+                <code><span title="lakera_chainguard.lakera_chainguard.GuardInput">GuardInput</span></code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>input to check regarding AI security risk</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+      <p>Returns:
+    input unchanged
+Raises:
+    either LakeraGuardError or LakeraGuardWarning if input contains AI
+    security risk detected depending on self.raise_error True or False</p>
+
+          <details class="quote">
+            <summary>Source code in <code>lakera_chainguard/lakera_chainguard.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span>
+<span class="normal">154</span>
+<span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span>
+<span class="normal">160</span>
+<span class="normal">161</span>
+<span class="normal">162</span>
+<span class="normal">163</span>
+<span class="normal">164</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">detect</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">input</span><span class="p">:</span> <span class="n">GuardInput</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">GuardInput</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Raises error if input contains AI security risk specified in self.classifier.</span>
+<span class="sd">    Otherwise, lets input through.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        input: input to check regarding AI security risk</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        input unchanged</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        either LakeraGuardError or LakeraGuardWarning if input contains AI</span>
+<span class="sd">        security risk detected depending on self.raise_error True or False</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">formatted_input</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">format_to_lakera_guard_input</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
+    <span class="n">lakera_guard_response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">call_lakera_guard</span><span class="p">(</span><span class="n">formatted_input</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">lakera_guard_response</span><span class="p">[</span><span class="s2">&quot;results&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;categories&quot;</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">classifier</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">raise_error</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">LakeraGuardError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Lakera Guard detected </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">classifier</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">,</span> <span class="n">lakera_guard_response</span>
+            <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+                <span class="n">LakeraGuardWarning</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;Lakera Guard detected </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">classifier</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">,</span>
+                    <span class="n">lakera_guard_response</span><span class="p">,</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+    <span class="k">return</span> <span class="nb">input</span>
+</code></pre></div></td></tr></table></div>
+          </details>
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="lakera_chainguard.lakera_chainguard.LakeraChainGuard.detect_with_response" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">detect_with_response</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Returns detection result of AI security risk specified in self.classifier
+with regard to the input.</p>
+
+
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>input</code></td>
+          <td>
+                <code><span title="lakera_chainguard.lakera_chainguard.GuardInput">GuardInput</span></code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>input to check regarding AI security risk</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+      <p>Returns:
+    detection result of AI security risk specified in self.classifier</p>
+
+          <details class="quote">
+            <summary>Source code in <code>lakera_chainguard/lakera_chainguard.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">166</span>
+<span class="normal">167</span>
+<span class="normal">168</span>
+<span class="normal">169</span>
+<span class="normal">170</span>
+<span class="normal">171</span>
+<span class="normal">172</span>
+<span class="normal">173</span>
+<span class="normal">174</span>
+<span class="normal">175</span>
+<span class="normal">176</span>
+<span class="normal">177</span>
+<span class="normal">178</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">detect_with_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">input</span><span class="p">:</span> <span class="n">GuardInput</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns detection result of AI security risk specified in self.classifier</span>
+<span class="sd">    with regard to the input.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        input: input to check regarding AI security risk</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        detection result of AI security risk specified in self.classifier</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">formatted_input</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">format_to_lakera_guard_input</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
+    <span class="n">lakera_guard_response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">call_lakera_guard</span><span class="p">(</span><span class="n">formatted_input</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">lakera_guard_response</span>
+</code></pre></div></td></tr></table></div>
+          </details>
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="lakera_chainguard.lakera_chainguard.LakeraChainGuard.format_to_lakera_guard_input" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">format_to_lakera_guard_input</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Formats the input into LangChain's LLMs or ChatLLMs to be compatible as Lakera
+Guard input.</p>
+
+
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>input</code></td>
+          <td>
+                <code><span title="lakera_chainguard.lakera_chainguard.GuardInput">GuardInput</span></code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>Object that follows LangChain's LLM or ChatLLM input format</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+      <p>Returns:
+    Object that follows Lakera Guard's input format</p>
+
+          <details class="quote">
+            <summary>Source code in <code>lakera_chainguard/lakera_chainguard.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span>
+<span class="normal">131</span>
+<span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">format_to_lakera_guard_input</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span> <span class="nb">input</span><span class="p">:</span> <span class="n">GuardInput</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Formats the input into LangChain&#39;s LLMs or ChatLLMs to be compatible as Lakera</span>
+<span class="sd">    Guard input.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        input: Object that follows LangChain&#39;s LLM or ChatLLM input format</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        Object that follows Lakera Guard&#39;s input format</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">input</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">PromptValue</span><span class="p">):</span>
+            <span class="nb">input</span> <span class="o">=</span> <span class="nb">input</span><span class="o">.</span><span class="n">to_messages</span><span class="p">()</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">List</span><span class="p">):</span>
+            <span class="n">formatted_input</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;system&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">},</span>
+                <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">},</span>
+                <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;assistant&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">},</span>
+            <span class="p">]</span>
+            <span class="c1"># For system, human, assistant, we put the last message of each</span>
+            <span class="c1"># type in the guard input</span>
+            <span class="k">for</span> <span class="n">message</span> <span class="ow">in</span> <span class="nb">input</span><span class="p">:</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span>
+                    <span class="n">message</span><span class="p">,</span> <span class="p">(</span><span class="n">HumanMessage</span><span class="p">,</span> <span class="n">SystemMessage</span><span class="p">,</span> <span class="n">AIMessage</span><span class="p">)</span>
+                <span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">content</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+                    <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Input type not supported by Lakera Guard.&quot;</span><span class="p">)</span>
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">SystemMessage</span><span class="p">):</span>
+                    <span class="n">formatted_input</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;content&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">message</span><span class="o">.</span><span class="n">content</span>
+                <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">HumanMessage</span><span class="p">):</span>
+                    <span class="n">formatted_input</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="s2">&quot;content&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">message</span><span class="o">.</span><span class="n">content</span>
+                <span class="k">else</span><span class="p">:</span>  <span class="c1"># must be AIMessage</span>
+                    <span class="n">formatted_input</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="s2">&quot;content&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">message</span><span class="o">.</span><span class="n">content</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">classifier</span> <span class="o">!=</span> <span class="s2">&quot;prompt_injection&quot;</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">formatted_input</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="s2">&quot;content&quot;</span><span class="p">]</span>
+            <span class="k">return</span> <span class="n">formatted_input</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+          </details>
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="lakera_chainguard.lakera_chainguard.LakeraChainGuard.get_guarded_agent_executor" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">get_guarded_agent_executor</span><span class="p">()</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Creates a subclass of the AgentExecutor in which the input to the LLM that the
+AgentExecutor is initialized with gets checked w.r.t. AI security risk specified
+in self.classifier.</p>
+
+
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code><span title="typing.Type">Type</span>[GuardedAgentExecutor]</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>Guarded AgentExecutor subclass</p>
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+          <details class="quote">
+            <summary>Source code in <code>lakera_chainguard/lakera_chainguard.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">240</span>
+<span class="normal">241</span>
+<span class="normal">242</span>
+<span class="normal">243</span>
+<span class="normal">244</span>
+<span class="normal">245</span>
+<span class="normal">246</span>
+<span class="normal">247</span>
+<span class="normal">248</span>
+<span class="normal">249</span>
+<span class="normal">250</span>
+<span class="normal">251</span>
+<span class="normal">252</span>
+<span class="normal">253</span>
+<span class="normal">254</span>
+<span class="normal">255</span>
+<span class="normal">256</span>
+<span class="normal">257</span>
+<span class="normal">258</span>
+<span class="normal">259</span>
+<span class="normal">260</span>
+<span class="normal">261</span>
+<span class="normal">262</span>
+<span class="normal">263</span>
+<span class="normal">264</span>
+<span class="normal">265</span>
+<span class="normal">266</span>
+<span class="normal">267</span>
+<span class="normal">268</span>
+<span class="normal">269</span>
+<span class="normal">270</span>
+<span class="normal">271</span>
+<span class="normal">272</span>
+<span class="normal">273</span>
+<span class="normal">274</span>
+<span class="normal">275</span>
+<span class="normal">276</span>
+<span class="normal">277</span>
+<span class="normal">278</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">get_guarded_agent_executor</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Type</span><span class="p">[</span><span class="s2">&quot;GuardedAgentExecutor&quot;</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Creates a subclass of the AgentExecutor in which the input to the LLM that the</span>
+<span class="sd">    AgentExecutor is initialized with gets checked w.r.t. AI security risk specified</span>
+<span class="sd">    in self.classifier.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Guarded AgentExecutor subclass</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">lakera_guard_instance</span> <span class="o">=</span> <span class="bp">self</span>
+
+    <span class="k">class</span> <span class="nc">GuardedAgentExecutor</span><span class="p">(</span><span class="n">AgentExecutor</span><span class="p">):</span>
+        <span class="k">def</span> <span class="nf">_take_next_step</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">name_to_tool_map</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">BaseTool</span><span class="p">],</span>
+            <span class="n">color_mapping</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span>
+            <span class="n">inputs</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span>
+            <span class="n">intermediate_steps</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="n">AgentAction</span><span class="p">,</span> <span class="nb">str</span><span class="p">]],</span>
+            <span class="o">*</span><span class="n">args</span><span class="p">,</span>
+            <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+        <span class="p">):</span>
+            <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">inputs</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+                <span class="n">lakera_guard_instance</span><span class="o">.</span><span class="n">detect</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+
+            <span class="n">res</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">_take_next_step</span><span class="p">(</span>
+                <span class="n">name_to_tool_map</span><span class="p">,</span>
+                <span class="n">color_mapping</span><span class="p">,</span>
+                <span class="n">inputs</span><span class="p">,</span>
+                <span class="n">intermediate_steps</span><span class="p">,</span>
+                <span class="o">*</span><span class="n">args</span><span class="p">,</span>
+                <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+            <span class="p">)</span>
+
+            <span class="k">for</span> <span class="n">act</span> <span class="ow">in</span> <span class="n">intermediate_steps</span><span class="p">:</span>
+                <span class="n">lakera_guard_instance</span><span class="o">.</span><span class="n">detect</span><span class="p">(</span><span class="n">act</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+            <span class="k">return</span> <span class="n">res</span>
+
+    <span class="k">return</span> <span class="n">GuardedAgentExecutor</span>
+</code></pre></div></td></tr></table></div>
+          </details>
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="lakera_chainguard.lakera_chainguard.LakeraChainGuard.get_guarded_chat_llm" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">get_guarded_chat_llm</span><span class="p">(</span><span class="n">type_of_chat_llm</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Creates a subclass of type_of_chat_llm in which the input to the ChatLLM always
+  gets checked w.r.t. AI security risk specified in self.classifier.</p>
+
+
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>type_of_llm</code></td>
+          <td>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>any type of LangChain's ChatLLMs</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+      <p>Returns:
+    Guarded subclass of type_of_llm</p>
+
+          <details class="quote">
+            <summary>Source code in <code>lakera_chainguard/lakera_chainguard.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">209</span>
+<span class="normal">210</span>
+<span class="normal">211</span>
+<span class="normal">212</span>
+<span class="normal">213</span>
+<span class="normal">214</span>
+<span class="normal">215</span>
+<span class="normal">216</span>
+<span class="normal">217</span>
+<span class="normal">218</span>
+<span class="normal">219</span>
+<span class="normal">220</span>
+<span class="normal">221</span>
+<span class="normal">222</span>
+<span class="normal">223</span>
+<span class="normal">224</span>
+<span class="normal">225</span>
+<span class="normal">226</span>
+<span class="normal">227</span>
+<span class="normal">228</span>
+<span class="normal">229</span>
+<span class="normal">230</span>
+<span class="normal">231</span>
+<span class="normal">232</span>
+<span class="normal">233</span>
+<span class="normal">234</span>
+<span class="normal">235</span>
+<span class="normal">236</span>
+<span class="normal">237</span>
+<span class="normal">238</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">get_guarded_chat_llm</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span> <span class="n">type_of_chat_llm</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="n">BaseChatModel</span><span class="p">]</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Type</span><span class="p">[</span><span class="s2">&quot;GuardedChatLLM&quot;</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Creates a subclass of type_of_chat_llm in which the input to the ChatLLM always</span>
+<span class="sd">      gets checked w.r.t. AI security risk specified in self.classifier.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        type_of_llm: any type of LangChain&#39;s ChatLLMs</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        Guarded subclass of type_of_llm</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">lakera_guard_instance</span> <span class="o">=</span> <span class="bp">self</span>
+
+    <span class="k">class</span> <span class="nc">GuardedChatLLM</span><span class="p">(</span><span class="n">type_of_chat_llm</span><span class="p">):</span>
+        <span class="nd">@property</span>
+        <span class="k">def</span> <span class="nf">_llm_type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;guarded_&quot;</span> <span class="o">+</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">_llm_type</span>
+
+        <span class="k">def</span> <span class="nf">_generate</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">messages</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">BaseMessage</span><span class="p">],</span>
+            <span class="n">stop</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">run_manager</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">CallbackManagerForLLMRun</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
+        <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ChatResult</span><span class="p">:</span>
+            <span class="n">lakera_guard_instance</span><span class="o">.</span><span class="n">detect</span><span class="p">(</span><span class="n">messages</span><span class="p">)</span>
+            <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">_generate</span><span class="p">(</span><span class="n">messages</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">run_manager</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">GuardedChatLLM</span>
+</code></pre></div></td></tr></table></div>
+          </details>
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="lakera_chainguard.lakera_chainguard.LakeraChainGuard.get_guarded_llm" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">get_guarded_llm</span><span class="p">(</span><span class="n">type_of_llm</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Creates a subclass of type_of_llm where the input to the LLM always gets
+checked w.r.t. AI security risk specified in self.classifier.</p>
+
+
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>type_of_llm</code></td>
+          <td>
+                <code><span title="typing.Type">Type</span>[<span title="langchain_core.language_models.BaseLLM">BaseLLM</span>]</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>any type of LangChain's LLMs</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+      <p>Returns:
+    Guarded subclass of type_of_llm</p>
+
+          <details class="quote">
+            <summary>Source code in <code>lakera_chainguard/lakera_chainguard.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">180</span>
+<span class="normal">181</span>
+<span class="normal">182</span>
+<span class="normal">183</span>
+<span class="normal">184</span>
+<span class="normal">185</span>
+<span class="normal">186</span>
+<span class="normal">187</span>
+<span class="normal">188</span>
+<span class="normal">189</span>
+<span class="normal">190</span>
+<span class="normal">191</span>
+<span class="normal">192</span>
+<span class="normal">193</span>
+<span class="normal">194</span>
+<span class="normal">195</span>
+<span class="normal">196</span>
+<span class="normal">197</span>
+<span class="normal">198</span>
+<span class="normal">199</span>
+<span class="normal">200</span>
+<span class="normal">201</span>
+<span class="normal">202</span>
+<span class="normal">203</span>
+<span class="normal">204</span>
+<span class="normal">205</span>
+<span class="normal">206</span>
+<span class="normal">207</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">get_guarded_llm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">type_of_llm</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="n">BaseLLM</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Type</span><span class="p">[</span><span class="s2">&quot;GuardedLLM&quot;</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Creates a subclass of type_of_llm where the input to the LLM always gets</span>
+<span class="sd">    checked w.r.t. AI security risk specified in self.classifier.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        type_of_llm: any type of LangChain&#39;s LLMs</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        Guarded subclass of type_of_llm</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">lakera_guard_instance</span> <span class="o">=</span> <span class="bp">self</span>
+
+    <span class="k">class</span> <span class="nc">GuardedLLM</span><span class="p">(</span><span class="n">type_of_llm</span><span class="p">):</span>
+        <span class="nd">@property</span>
+        <span class="k">def</span> <span class="nf">_llm_type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;guarded_&quot;</span> <span class="o">+</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">_llm_type</span>
+
+        <span class="k">def</span> <span class="nf">_generate</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">prompts</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+            <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
+        <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">LLMResult</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">prompt</span> <span class="ow">in</span> <span class="n">prompts</span><span class="p">:</span>
+                <span class="n">lakera_guard_instance</span><span class="o">.</span><span class="n">detect</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
+
+            <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">_generate</span><span class="p">(</span><span class="n">prompts</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">GuardedLLM</span>
+</code></pre></div></td></tr></table></div>
+          </details>
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="lakera_chainguard.lakera_chainguard.LakeraGuardError" class="doc doc-heading">
+          <code>LakeraGuardError</code>
+
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+          <p class="doc doc-class-bases">
+            Bases: <code>RuntimeError</code></p>
+
+
+            <details class="quote">
+              <summary>Source code in <code>lakera_chainguard/lakera_chainguard.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">LakeraGuardError</span><span class="p">(</span><span class="ne">RuntimeError</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">lakera_guard_response</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Custom error that gets raised if Lakera Guard detects AI security risk.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            message: error message</span>
+<span class="sd">            lakera_guard_response: Lakera Guard&#39;s API response in json format</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lakera_guard_response</span> <span class="o">=</span> <span class="n">lakera_guard_response</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="lakera_chainguard.lakera_chainguard.LakeraGuardError.__init__" class="doc doc-heading">
+          <code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">lakera_guard_response</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Custom error that gets raised if Lakera Guard detects AI security risk.</p>
+
+
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>message</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>error message</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>lakera_guard_response</code></td>
+          <td>
+                <code>dict</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>Lakera Guard's API response in json format</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+      <p>Returns:
+    None</p>
+
+          <details class="quote">
+            <summary>Source code in <code>lakera_chainguard/lakera_chainguard.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">lakera_guard_response</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Custom error that gets raised if Lakera Guard detects AI security risk.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        message: error message</span>
+<span class="sd">        lakera_guard_response: Lakera Guard&#39;s API response in json format</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        None</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">lakera_guard_response</span> <span class="o">=</span> <span class="n">lakera_guard_response</span>
+</code></pre></div></td></tr></table></div>
+          </details>
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="lakera_chainguard.lakera_chainguard.LakeraGuardWarning" class="doc doc-heading">
+          <code>LakeraGuardWarning</code>
+
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+          <p class="doc doc-class-bases">
+            Bases: <code>RuntimeWarning</code></p>
+
+
+            <details class="quote">
+              <summary>Source code in <code>lakera_chainguard/lakera_chainguard.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">LakeraGuardWarning</span><span class="p">(</span><span class="ne">RuntimeWarning</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">lakera_guard_response</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Custom warning that gets raised if Lakera Guard detects AI security risk.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            message: error message</span>
+<span class="sd">            lakera_guard_response: Lakera Guard&#39;s API response in json format</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lakera_guard_response</span> <span class="o">=</span> <span class="n">lakera_guard_response</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="lakera_chainguard.lakera_chainguard.LakeraGuardWarning.__init__" class="doc doc-heading">
+          <code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">lakera_guard_response</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Custom warning that gets raised if Lakera Guard detects AI security risk.</p>
+
+
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>message</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>error message</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>lakera_guard_response</code></td>
+          <td>
+                <code>dict</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>Lakera Guard's API response in json format</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+      <p>Returns:
+    None</p>
+
+          <details class="quote">
+            <summary>Source code in <code>lakera_chainguard/lakera_chainguard.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">lakera_guard_response</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Custom warning that gets raised if Lakera Guard detects AI security risk.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        message: error message</span>
+<span class="sd">        lakera_guard_response: Lakera Guard&#39;s API response in json format</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        None</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">lakera_guard_response</span> <span class="o">=</span> <span class="n">lakera_guard_response</span>
+</code></pre></div></td></tr></table></div>
+          </details>
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+
+</div>
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7c377c4.min.js"></script>
+      
+    
+  </body>
+</html>
