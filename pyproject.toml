@@ -20,6 +20,7 @@ black = "^23.12.1"
 pre-commit = "^3.6.0"
 ipykernel = "^6.28.0"
 openai = "^1.6.1"
+langchain-openai = "^0.0.2"
 
 
 [build-system]

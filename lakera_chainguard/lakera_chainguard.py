@@ -17,11 +17,29 @@ NextStepOutput = List[Union[AgentFinish, AgentAction, AgentStep]]
 
 
 class LakeraGuardError(RuntimeError):
-    pass
+    def __init__(self, message: str, lakera_guard_response: dict):
+        """
+        Custom error that gets raised if Lakera Guard detects AI security risk.
+
+        Args:
+            message: error message
+            lakera_guard_response: Lakera Guard's API response in json format
+        """
+        super().__init__(message)
+        self.lakera_guard_response = lakera_guard_response
 
 
 class LakeraGuardWarning(RuntimeWarning):
-    pass
+    def __init__(self, message: str, lakera_guard_response: dict):
+        """
+        Custom warning that gets raised if Lakera Guard detects AI security risk.
+
+        Args:
+            message: error message
+            lakera_guard_response: Lakera Guard's API response in json format
+        """
+        super().__init__(message)
+        self.lakera_guard_response = lakera_guard_response
 
 
 session = requests.Session()  # Allows persistent connection (create only once)
@@ -50,7 +68,7 @@ class LakeraChainGuard:
         self.classifier = classifier
         self.raise_error = raise_error
 
-    def call_lakera_guard(self, query: Union[str, list[dict[str, str]]]) -> bool:
+    def call_lakera_guard(self, query: Union[str, list[dict[str, str]]]) -> dict:
         """
         Makes an API request to the Lakera Guard API endpoint specified in
         self.classifier.
@@ -59,7 +77,7 @@ class LakeraChainGuard:
             query: User prompt or list of message containing system, user
                 and assistant roles.
         Returns:
-            The classifier's detection result
+            The classifier's API response as dict
         """
         response = session.post(
             f"https://api.lakera.ai/v1/{self.classifier}",
@@ -67,8 +85,8 @@ class LakeraChainGuard:
             headers={"Authorization": f"Bearer {self.api_key}"},
         )
         answer = response.json()
-        result = answer["results"][0]["categories"][self.classifier]
-        return result
+        # result = answer["results"][0]["categories"][self.classifier]
+        return answer
 
     def format_to_lakera_guard_input(
         self, input: GuardInput
@@ -126,17 +144,22 @@ class LakeraChainGuard:
             security risk detected depending on self.raise_error True or False
         """
         formatted_input = self.format_to_lakera_guard_input(input)
-        lakera_guard_result = self.call_lakera_guard(formatted_input)
-        if lakera_guard_result:
+        lakera_guard_response = self.call_lakera_guard(formatted_input)
+        if lakera_guard_response["results"][0]["categories"][self.classifier]:
             if self.raise_error:
-                raise LakeraGuardError(f"Lakera Guard detected {self.classifier}.")
+                raise LakeraGuardError(
+                    f"Lakera Guard detected {self.classifier}.", lakera_guard_response
+                )
             else:
                 warnings.warn(
-                    LakeraGuardWarning(f"Lakera Guard detected {self.classifier}.")
+                    LakeraGuardWarning(
+                        f"Lakera Guard detected {self.classifier}.",
+                        lakera_guard_response,
+                    )
                 )
         return input
 
-    def detect_with_feedback(self, input: GuardInput) -> bool:
+    def detect_with_response(self, input: GuardInput) -> dict:
         """
         Returns detection result of AI security risk specified in self.classifier
         with regard to the input.
@@ -147,8 +170,8 @@ class LakeraChainGuard:
             detection result of AI security risk specified in self.classifier
         """
         formatted_input = self.format_to_lakera_guard_input(input)
-        lakera_guard_result = self.call_lakera_guard(formatted_input)
-        return lakera_guard_result
+        lakera_guard_response = self.call_lakera_guard(formatted_input)
+        return lakera_guard_response
 
     def get_guarded_llm(self, type_of_llm: Type[BaseLLM]):
         """
@@ -156,8 +179,7 @@ class LakeraChainGuard:
         checked w.r.t. AI security risk specified in self.classifier.
 
         Args:
-            type_of_llm: any type of LangChain's LLM specified in
-                langchain_community.llms
+            type_of_llm: any type of LangChain's LLMs
         Returns:
             Guarded subclass of type_of_llm
         """
@@ -186,8 +208,7 @@ class LakeraChainGuard:
           gets checked w.r.t. AI security risk specified in self.classifier.
 
         Args:
-            type_of_llm: any type of LangChain's LLM specified in
-            langchain_community.chat_models
+            type_of_llm: any type of LangChain's ChatLLMs
         Returns:
             Guarded subclass of type_of_llm
         """
