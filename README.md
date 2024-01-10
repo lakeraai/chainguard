@@ -141,7 +141,7 @@ LakeraGuardError: Lakera Guard detected prompt_injection.
 
 ## Features
 
-With **ChainGuard**, you can guard:
+With **Lakera ChainGuard**, you can guard:
 
 - LLM and ChatLLM by chaining with Lakera Guard so that an error will be raised upon risk detection
   - alternatively, you can run the Lakera Guard component and the LLM in parallel and decide what to do upon risk detection

@@ -48,7 +48,7 @@ session = requests.Session()  # Allows persistent connection (create only once)
 class LakeraChainGuard:
     def __init__(
         self,
-        api_key: str = os.environ.get("LAKERA_GUARD_API_KEY", ""),
+        api_key: str = "",
         classifier: str = "prompt_injection",
         raise_error: bool = True,
     ):
@@ -64,6 +64,15 @@ class LakeraChainGuard:
         Returns:
 
         """
+        # We cannot set default value for api_key to
+        # os.environ.get("LAKERA_GUARD_API_KEY", "") because this would only be
+        # evaluated once when the class is created. This would mean that if the
+        # user sets the environment variable after creating the class, the class
+        # would not use the environment variable.
+        if api_key == "":
+            self.api_key = os.environ.get("LAKERA_GUARD_API_KEY", "")
+        else:
+            self.api_key
         self.api_key = api_key
         self.classifier = classifier
         self.raise_error = raise_error
