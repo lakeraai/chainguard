@@ -4,3 +4,5 @@ reference for the technical implementation of the
 `lakera_chainguard` project code.
 
 ::: lakera_chainguard.lakera_chainguard
+    handler: python
+    

@@ -137,16 +137,14 @@ class LakeraChainGuard:
 
     def detect(self, input: GuardInput) -> GuardInput:
         """
-        Raises error if input contains AI security risk specified in self.classifier.
-        Otherwise, lets input through.
+        If input contains AI security risk specified in self.classifier, raises either
+        LakeraGuardError or LakeraGuardWarning depending on self.raise_error True or
+        False. Otherwise, lets input through.
 
         Args:
             input: input to check regarding AI security risk
         Returns:
             input unchanged
-        Raises:
-            either LakeraGuardError or LakeraGuardWarning if input contains AI
-            security risk detected depending on self.raise_error True or False
         """
         formatted_input = self.format_to_lakera_guard_input(input)
         lakera_guard_response = self.call_lakera_guard(formatted_input)
