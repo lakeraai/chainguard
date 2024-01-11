@@ -53,7 +53,7 @@ session = requests.Session()  # Allows persistent connection (create only once)
 class LakeraChainGuard:
     def __init__(
         self,
-        api_key: str = os.environ.get("LAKERA_GUARD_API_KEY", ""),
+        api_key: str = "",
         classifier: str = "prompt_injection",
         raise_error: bool = True,
     ) -> None:
@@ -69,6 +69,15 @@ class LakeraChainGuard:
         Returns:
             None
         """
+        # We cannot set default value for api_key to
+        # os.environ.get("LAKERA_GUARD_API_KEY", "") because this would only be
+        # evaluated once when the class is created. This would mean that if the
+        # user sets the environment variable after creating the class, the class
+        # would not use the environment variable.
+        if api_key == "":
+            self.api_key = os.environ.get("LAKERA_GUARD_API_KEY", "")
+        else:
+            self.api_key
         self.api_key = api_key
         self.classifier = classifier
         self.raise_error = raise_error
@@ -137,16 +146,14 @@ class LakeraChainGuard:
 
     def detect(self, input: GuardInput) -> GuardInput:
         """
-        Raises error if input contains AI security risk specified in self.classifier.
-        Otherwise, lets input through.
+        If input contains AI security risk specified in self.classifier, raises either
+        LakeraGuardError or LakeraGuardWarning depending on self.raise_error True or
+        False. Otherwise, lets input through.
 
         Args:
             input: input to check regarding AI security risk
         Returns:
             input unchanged
-        Raises:
-            either LakeraGuardError or LakeraGuardWarning if input contains AI
-            security risk detected depending on self.raise_error True or False
         """
         formatted_input = self.format_to_lakera_guard_input(input)
         lakera_guard_response = self.call_lakera_guard(formatted_input)

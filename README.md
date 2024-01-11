@@ -121,6 +121,8 @@ In [Quickstart](#quickstart), we used a guarded LLM subclass to initialize the a
 from langchain_openai import OpenAI
 from langchain.agents import AgentType, initialize_agent
 
+from lakera_chainguard import LakeraChainGuard, LakeraGuardError
+
 openai_api_key = os.getenv("OPENAI_API_KEY")
 lakera_guard_api_key = os.getenv("LAKERA_GUARD_API_KEY")
 
@@ -141,7 +143,7 @@ LakeraGuardError: Lakera Guard detected prompt_injection.
 
 ## Features
 
-With **ChainGuard**, you can guard:
+With **Lakera ChainGuard**, you can guard:
 
 - any LLM or ChatLLM supported by LangChain (see [tutorial](./examples/tutorial_guard_llm.ipynb)).
 - any agent based on any LLM/ChatLLM supported by LangChain, i.e. off-the-shelf agents, fully customizable agents and also OpenAI assistants (see [tutorial](./examples/tutorial_guard_agent.ipynb)).
