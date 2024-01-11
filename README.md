@@ -121,6 +121,8 @@ Guard your [LangChain agents](https://python.langchain.com/docs/modules/agents/)
 from langchain_openai import OpenAI
 from langchain.agents import AgentType, initialize_agent
 
+from lakera_chainguard import LakeraChainGuard, LakeraGuardError
+
 openai_api_key = os.getenv("OPENAI_API_KEY")
 lakera_guard_api_key = os.getenv("LAKERA_GUARD_API_KEY")
 

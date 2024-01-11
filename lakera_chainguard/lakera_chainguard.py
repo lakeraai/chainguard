@@ -1,8 +1,9 @@
+from __future__ import annotations
 import os
 from typing import Any, Dict, List, Optional, Tuple, Type, Union
 import warnings
-
 import requests
+
 from langchain.agents import AgentExecutor
 from langchain.schema import BaseMessage, PromptValue
 from langchain.tools import BaseTool
@@ -17,26 +18,30 @@ NextStepOutput = List[Union[AgentFinish, AgentAction, AgentStep]]
 
 
 class LakeraGuardError(RuntimeError):
-    def __init__(self, message: str, lakera_guard_response: dict):
+    def __init__(self, message: str, lakera_guard_response: dict) -> None:
         """
         Custom error that gets raised if Lakera Guard detects AI security risk.
 
         Args:
             message: error message
             lakera_guard_response: Lakera Guard's API response in json format
+        Returns:
+            None
         """
         super().__init__(message)
         self.lakera_guard_response = lakera_guard_response
 
 
 class LakeraGuardWarning(RuntimeWarning):
-    def __init__(self, message: str, lakera_guard_response: dict):
+    def __init__(self, message: str, lakera_guard_response: dict) -> None:
         """
         Custom warning that gets raised if Lakera Guard detects AI security risk.
 
         Args:
             message: error message
             lakera_guard_response: Lakera Guard's API response in json format
+        Returns:
+            None
         """
         super().__init__(message)
         self.lakera_guard_response = lakera_guard_response
@@ -51,7 +56,7 @@ class LakeraChainGuard:
         api_key: str = "",
         classifier: str = "prompt_injection",
         raise_error: bool = True,
-    ):
+    ) -> None:
         """
         Contains different methods that help with guarding LLMs and agents in LangChain.
 
@@ -62,7 +67,7 @@ class LakeraChainGuard:
             raise_error: whether to raise an error or a warning if the classifier
                 detects AI security risk
         Returns:
-
+            None
         """
         # We cannot set default value for api_key to
         # os.environ.get("LAKERA_GUARD_API_KEY", "") because this would only be
@@ -105,9 +110,9 @@ class LakeraChainGuard:
         Guard input.
 
         Args:
-            input: Parameter that follows LangChain's LLM or ChatLLM input format
+            input: Object that follows LangChain's LLM or ChatLLM input format
         Returns:
-            Parameter that follows Lakera Guard's input format
+            Object that follows Lakera Guard's input format
         """
         if isinstance(input, str):
             return input
@@ -141,16 +146,14 @@ class LakeraChainGuard:
 
     def detect(self, input: GuardInput) -> GuardInput:
         """
-        Raises error if input contains AI security risk specified in self.classifier.
-        Otherwise, lets input through.
+        If input contains AI security risk specified in self.classifier, raises either
+        LakeraGuardError or LakeraGuardWarning depending on self.raise_error True or
+        False. Otherwise, lets input through.
 
         Args:
             input: input to check regarding AI security risk
         Returns:
             input unchanged
-        Raises:
-            either LakeraGuardError or LakeraGuardWarning if input contains AI
-            security risk detected depending on self.raise_error True or False
         """
         formatted_input = self.format_to_lakera_guard_input(input)
         lakera_guard_response = self.call_lakera_guard(formatted_input)
@@ -182,7 +185,7 @@ class LakeraChainGuard:
         lakera_guard_response = self.call_lakera_guard(formatted_input)
         return lakera_guard_response
 
-    def get_guarded_llm(self, type_of_llm: Type[BaseLLM]):
+    def get_guarded_llm(self, type_of_llm: Type[BaseLLM]) -> Type[BaseLLM]:
         """
         Creates a subclass of type_of_llm where the input to the LLM always gets
         checked w.r.t. AI security risk specified in self.classifier.
@@ -211,7 +214,9 @@ class LakeraChainGuard:
 
         return GuardedLLM
 
-    def get_guarded_chat_llm(self, type_of_chat_llm: Type[BaseChatModel]):
+    def get_guarded_chat_llm(
+        self, type_of_chat_llm: Type[BaseChatModel]
+    ) -> Type[BaseChatModel]:
         """
         Creates a subclass of type_of_chat_llm in which the input to the ChatLLM always
           gets checked w.r.t. AI security risk specified in self.classifier.
@@ -240,7 +245,7 @@ class LakeraChainGuard:
 
         return GuardedChatLLM
 
-    def get_guarded_agent_executor(self):
+    def get_guarded_agent_executor(self) -> Type[AgentExecutor]:
         """
         Creates a subclass of the AgentExecutor in which the input to the LLM that the
         AgentExecutor is initialized with gets checked w.r.t. AI security risk specified
