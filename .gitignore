@@ -6,4 +6,4 @@ __pycache__
 .env
 .venv
 .ipynb_checkpoints/
-dist
+dist/
