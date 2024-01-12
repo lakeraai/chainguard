@@ -16,6 +16,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lakeraai.github.io/chainguard/demos/indirect-prompt-injection/</loc>
+         <lastmod>2024-01-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lakeraai.github.io/chainguard/tutorials/tutorial_agent/</loc>
          <lastmod>2024-01-12</lastmod>
          <changefreq>daily</changefreq>
