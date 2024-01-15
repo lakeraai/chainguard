@@ -55,7 +55,9 @@ nav:
   - Tutorials:
     - Tutorial to Guard LLM: tutorials/tutorial_llm.md
     - Tutorial  to Guard Agent: tutorials/tutorial_agent.md
-  - How-to Guides: how-to-guides.md
+  - How-To Guides:
+    - Guarding LangChain: how-to-guides.md
+    - Redacting Personally Identifiable Information (PII): how-tos/pii-redaction.md
   - API Reference: reference.md
 
 markdown_extensions:
