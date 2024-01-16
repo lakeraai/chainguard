@@ -16,6 +16,8 @@ LangChain's official documentation has a [prompt injection identification guide]
 
 Lakera ChainGuard is a package that provides a simple, reliable way to secure your LLM applications and agents from prompt injection and jailbreaks without worrying about the challenges of tools or needing to include another model in your workflow.
 
+For tutorials, how-to guides and API reference, see our [documentation](https://lakeraai.github.io/chainguard/).
+
 **Note**: The example code here focused on securing OpenAI models, but the same principles apply to any [LLM model provider](https://python.langchain.com/docs/integrations/llms/) or [ChatLLM model provider](https://python.langchain.com/docs/integrations/chat/) that LangChain supports.
 
 ## Quickstart
@@ -145,8 +147,8 @@ LakeraGuardError: Lakera Guard detected prompt_injection.
 
 With **Lakera ChainGuard**, you can guard:
 
-- any LLM or ChatLLM supported by LangChain (see [tutorial](./examples/tutorial_guard_llm.ipynb)).
-- any agent based on any LLM/ChatLLM supported by LangChain, i.e. off-the-shelf agents, fully customizable agents and also OpenAI assistants (see [tutorial](./examples/tutorial_guard_agent.ipynb)).
+- any LLM or ChatLLM supported by LangChain (see [tutorial](https://lakeraai.github.io/chainguard/tutorials/tutorial_llm/)).
+- any agent based on any LLM/ChatLLM supported by LangChain, i.e. off-the-shelf agents, fully customizable agents and also OpenAI assistants (see [tutorial](https://lakeraai.github.io/chainguard/tutorials/tutorial_agent/)).
 
 ## How to contribute
 We welcome contributions of all kinds. For more information on how to do it, we refer you to the [CONTRIBUTING.md](./CONTRIBUTING.md) file.
