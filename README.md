@@ -1,4 +1,4 @@
-# ChainGuard: Protect Your LangChain Apps with Lakera Guard
+# ChainGuard: Guard Your LangChain Apps with Lakera
 
 Secure Large Language Model (LLM) applications and agents built with [LangChain](https://www.langchain.com/) from [prompt injection and jailbreaks](https://platform.lakera.ai/docs/prompt_injection) (and [other risks](https://platform.lakera.ai/docs/api)) with [Lakera Guard](https://www.lakera.ai/) via the `lakera-chainguard` package.
 
