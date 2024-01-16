@@ -1,9 +1,10 @@
 from __future__ import annotations
-import os
-from typing import Any, Dict, List, Optional, Tuple, Type, Union
-import warnings
-import requests
 
+import os
+import warnings
+from typing import Any, Dict, List, Optional, Tuple, Type, Union
+
+import requests
 from langchain.agents import AgentExecutor
 from langchain.schema import BaseMessage, PromptValue
 from langchain.tools import BaseTool
@@ -55,6 +56,7 @@ class LakeraChainGuard:
         self,
         api_key: str = "",
         classifier: str = "prompt_injection",
+        classifier_args: dict = dict(),
         raise_error: bool = True,
     ) -> None:
         """
@@ -74,12 +76,9 @@ class LakeraChainGuard:
         # evaluated once when the class is created. This would mean that if the
         # user sets the environment variable after creating the class, the class
         # would not use the environment variable.
-        if api_key == "":
-            self.api_key = os.environ.get("LAKERA_GUARD_API_KEY", "")
-        else:
-            self.api_key
-        self.api_key = api_key
+        self.api_key = api_key or os.environ.get("LAKERA_GUARD_API_KEY", "")
         self.classifier = classifier
+        self.classifier_args = classifier_args
         self.raise_error = raise_error
 
     def call_lakera_guard(self, query: Union[str, list[dict[str, str]]]) -> dict:
@@ -93,33 +92,38 @@ class LakeraChainGuard:
         Returns:
             The classifier's API response as dict
         """
+        request_input = {"input": query}
+
+        request_body = request_input | self.classifier_args
+
         response = session.post(
             f"https://api.lakera.ai/v1/{self.classifier}",
-            json={"input": query},
+            json=request_body,
             headers={"Authorization": f"Bearer {self.api_key}"},
         )
-        answer = response.json()
-        # result = answer["results"][0]["categories"][self.classifier]
-        return answer
+
+        response_body = response.json()
+
+        return response_body
 
     def format_to_lakera_guard_input(
-        self, input: GuardInput
+        self, prompt: GuardInput
     ) -> Union[str, list[dict[str, str]]]:
         """
         Formats the input into LangChain's LLMs or ChatLLMs to be compatible as Lakera
         Guard input.
 
         Args:
-            input: Object that follows LangChain's LLM or ChatLLM input format
+            prompt: Object that follows LangChain's LLM or ChatLLM input format
         Returns:
             Object that follows Lakera Guard's input format
         """
-        if isinstance(input, str):
-            return input
+        if isinstance(prompt, str):
+            return prompt
         else:
-            if isinstance(input, PromptValue):
-                input = input.to_messages()
-            if isinstance(input, List):
+            if isinstance(prompt, PromptValue):
+                prompt = prompt.to_messages()
+            if isinstance(prompt, List):
                 formatted_input = [
                     {"role": "system", "content": ""},
                     {"role": "user", "content": ""},
@@ -127,7 +131,7 @@ class LakeraChainGuard:
                 ]
                 # For system, human, assistant, we put the last message of each
                 # type in the guard input
-                for message in input:
+                for message in prompt:
                     if not isinstance(
                         message, (HumanMessage, SystemMessage, AIMessage)
                     ) or not isinstance(message.content, str):
@@ -142,22 +146,24 @@ class LakeraChainGuard:
                     return formatted_input[1]["content"]
                 return formatted_input
             else:
-                return str(input)
+                return str(prompt)
 
-    def detect(self, input: GuardInput) -> GuardInput:
+    def detect(self, prompt: GuardInput) -> GuardInput:
         """
         If input contains AI security risk specified in self.classifier, raises either
         LakeraGuardError or LakeraGuardWarning depending on self.raise_error True or
         False. Otherwise, lets input through.
 
         Args:
-            input: input to check regarding AI security risk
+            prompt: input to check regarding AI security risk
         Returns:
-            input unchanged
+            prompt unchanged
         """
-        formatted_input = self.format_to_lakera_guard_input(input)
+        formatted_input = self.format_to_lakera_guard_input(prompt)
+
         lakera_guard_response = self.call_lakera_guard(formatted_input)
-        if lakera_guard_response["results"][0]["categories"][self.classifier]:
+
+        if lakera_guard_response["results"][0]["flagged"]:
             if self.raise_error:
                 raise LakeraGuardError(
                     f"Lakera Guard detected {self.classifier}.", lakera_guard_response
@@ -169,9 +175,10 @@ class LakeraChainGuard:
                         lakera_guard_response,
                     )
                 )
-        return input
 
-    def detect_with_response(self, input: GuardInput) -> dict:
+        return prompt
+
+    def detect_with_response(self, prompt: GuardInput) -> dict:
         """
         Returns detection result of AI security risk specified in self.classifier
         with regard to the input.
@@ -181,8 +188,10 @@ class LakeraChainGuard:
         Returns:
             detection result of AI security risk specified in self.classifier
         """
-        formatted_input = self.format_to_lakera_guard_input(input)
+        formatted_input = self.format_to_lakera_guard_input(prompt)
+
         lakera_guard_response = self.call_lakera_guard(formatted_input)
+
         return lakera_guard_response
 
     def get_guarded_llm(self, type_of_llm: Type[BaseLLM]) -> Type[BaseLLM]:

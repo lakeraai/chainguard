@@ -2,27 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://lakeraai.github.io/chainguard/</loc>
-         <lastmod>2024-01-12</lastmod>
+         <lastmod>2024-01-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://lakeraai.github.io/chainguard/how-to-guides/</loc>
-         <lastmod>2024-01-12</lastmod>
+         <lastmod>2024-01-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://lakeraai.github.io/chainguard/reference/</loc>
-         <lastmod>2024-01-12</lastmod>
+         <lastmod>2024-01-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lakeraai.github.io/chainguard/demos/benign-demo-page/</loc>
+         <lastmod>2024-01-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lakeraai.github.io/chainguard/demos/indirect-prompt-injection/</loc>
+         <lastmod>2024-01-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lakeraai.github.io/chainguard/how-tos/pii-redaction/</loc>
+         <lastmod>2024-01-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://lakeraai.github.io/chainguard/tutorials/tutorial_agent/</loc>
-         <lastmod>2024-01-12</lastmod>
+         <lastmod>2024-01-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://lakeraai.github.io/chainguard/tutorials/tutorial_llm/</loc>
-         <lastmod>2024-01-12</lastmod>
+         <lastmod>2024-01-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
