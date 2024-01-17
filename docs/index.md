@@ -40,5 +40,3 @@ We have tutorials, how-to guides, and [an API reference](https://lakeraai.github
   - [Agent Tutorial](https://lakeraai.github.io/chainguard/tutorials/tutorial_agent/)
   - [Large Language Model (LLM) Tutorial](https://lakeraai.github.io/chainguard/tutorials/tutorial_llm/)
   - [Retrieval Augmented Generation (RAG) Tutorial](https://lakeraai.github.io/chainguard/tutorials/tutorial_rag/)
-
-More advanced examples are available a in the [ChainGuard Tutorial Notebook](https://github.com/lakeraai/chainguard/blob/main/tutorial.ipynb).
