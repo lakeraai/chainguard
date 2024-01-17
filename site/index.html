@@ -276,6 +276,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="." class="md-nav__link md-nav__link--active">
         
   
@@ -285,6 +296,43 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#basic-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Example
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learn-more" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learn More
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -338,7 +386,7 @@
         
   
   <span class="md-ellipsis">
-    Tutorial to Guard LLM
+    LLM Tutorial
   </span>
   
 
@@ -359,7 +407,28 @@
         
   
   <span class="md-ellipsis">
-    Tutorial  to Guard Agent
+    Agent Tutorial
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tutorials/tutorial_rag/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RAG Tutorial
   </span>
   
 
@@ -502,6 +571,32 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#basic-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Example
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learn-more" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learn More
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -523,6 +618,7 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pip<span class="w"> </span>install<span class="w"> </span>lakera-chainguard
 </code></pre></div>
 <p>ChainGuard allows you to secure Large Language Model (LLM) applications and agents built with <a href="https://www.langchain.com/">LangChain</a> from <a href="https://platform.lakera.ai/docs/prompt_injection">prompt injection and jailbreaks</a> (and <a href="https://platform.lakera.ai/docs/api">other risks</a>) with <a href="https://www.lakera.ai/">Lakera Guard</a>.</p>
+<h2 id="basic-example">Basic Example</h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span> <span class="nn">langchain_openai</span> <span class="kn">import</span> <span class="n">OpenAI</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kn">from</span> <span class="nn">langchain.agents</span> <span class="kn">import</span> <span class="n">AgentType</span><span class="p">,</span> <span class="n">initialize_agent</span>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
@@ -540,8 +636,17 @@
 <a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;LakeraGuardError: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 <a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Lakera Guard Response: </span><span class="si">{</span><span class="n">e</span><span class="o">.</span><span class="n">lakera_guard_response</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </code></pre></div>
-<p>This site contains the developer documentation for the <a href="https://github.com/lakeraai/chainguard"><code>lakera-chainguard</code></a> package.</p>
-<p>More advanced examples are available in the <a href="https://github.com/lakeraai/chainguard/blob/main/tutorial.ipynb">ChainGuard Tutorial Notebook</a>.</p>
+<h2 id="learn-more">Learn More</h2>
+<p>We have tutorials, how-to guides, and <a href="https://lakeraai.github.io/chainguard/reference/">an API reference</a> to help you explore ChainGuard:</p>
+<ul>
+<li><strong>How-To Guides</strong>: are designed to quickly demonstrate how to implement ChainGuard functionality</li>
+<li><a href="https://lakeraai.github.io/chainguard/how-to-guides/">General ChainGuard Usage</a></li>
+<li><a href="https://lakeraai.github.io/chainguard/how-tos/pii-redaction/">Redacting Personally Identifiable Information (PII)</a></li>
+<li><strong>Tutorials</strong>: are designed to give you an in-depth understanding of how and why you would use ChainGuard</li>
+<li><a href="https://lakeraai.github.io/chainguard/tutorials/tutorial_agent/">Agent Tutorial</a></li>
+<li><a href="https://lakeraai.github.io/chainguard/tutorials/tutorial_llm/">Large Language Model (LLM) Tutorial</a></li>
+<li><a href="https://lakeraai.github.io/chainguard/tutorials/tutorial_rag/">Retrieval Augmented Generation (RAG) Tutorial</a></li>
+</ul>
 
 
 

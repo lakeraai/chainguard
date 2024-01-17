@@ -23,8 +23,6 @@ theme:
     # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
       scheme: default 
-
-
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
@@ -53,8 +51,9 @@ extra:
 nav:
   - Overview: index.md
   - Tutorials:
-    - Tutorial to Guard LLM: tutorials/tutorial_llm.md
-    - Tutorial  to Guard Agent: tutorials/tutorial_agent.md
+    - LLM Tutorial: tutorials/tutorial_llm.md
+    - Agent Tutorial: tutorials/tutorial_agent.md
+    - RAG Tutorial: tutorials/tutorial_rag.md  
   - How-To Guides:
     - Guarding LangChain: how-to-guides.md
     - Redacting Personally Identifiable Information (PII): how-tos/pii-redaction.md
