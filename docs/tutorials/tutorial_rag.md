@@ -21,7 +21,7 @@ from langchain_core.runnables import RunnablePassthrough, RunnableLambda
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 ```
 
-Then we'll define a `log_prompt()` method and `prompt_logger` runnable function provide convenient ways to log the current prompt at any point in a LangChain chain so that you can see how it changes as it is constructed.
+Then, we'll define a `log_prompt()` method and `prompt_logger` runnable function that provides a convenient way to log the current prompt at any point in a chain's execution so that we can see how it changes as it is constructed.
 
 You can ignore these or explore adding `prompt_logger` as a step in any chain in this tutorial when you want to see the prompt at that point in the chain.
 
