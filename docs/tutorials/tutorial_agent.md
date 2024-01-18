@@ -5,7 +5,7 @@ In this tutorial, we show you how to guard your LangChain agent. Depending on wh
 - [Guard your off-the-shelf agent](#off-the-shelf-agent) by creating a guarded LLM subclass that you can initialize your agent with
 - Guard your custom agent by using a guarded AgentExecutor subclass, either a [fully customizable agent](#custom-agent) or an [OpenAI assistant](#openai-assistant-in-langchain)
 
-When using these guarding options, each user prompt/tool answer that is fed into the agent's LLM gets checked by Lakera Guard. Upon AI risk detection (e.g.prompt injection), a `LakeraGuardError` or `LakeraGuardWarning` gets raised. Notice that only the answers of tools defined via LangChain are guarded, but if an agent has some built-in tools, the answer from those tools are not guarded. For further explanation, see guarding of [OpenAI assistant](##guarding-openai-assistant-in-langchain).
+When using these guarding options, each user prompt/tool answer that is fed into the agent's LLM gets checked by Lakera Guard. Upon AI risk detection (e.g.prompt injection), a `LakeraGuardError` or `LakeraGuardWarning` gets raised. Notice that only the answers of tools defined via LangChain are guarded, but if an agent has some built-in tools, the answer from those tools are not guarded. For further explanation, see [guarding of OpenAI assistant](#guarding-openai-assistant-in-langchain).
 
 The example code here focuses on securing agents based on OpenAI models, but the same principles apply to any [LLM model provider](https://python.langchain.com/docs/integrations/llms/) or [ChatLLM model provider](https://python.langchain.com/docs/integrations/chat/) that LangChain supports.
 

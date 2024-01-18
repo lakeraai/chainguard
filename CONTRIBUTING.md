@@ -23,7 +23,7 @@ Fork the GitHub repository of the project.
 The Python environment management is done via [poetry](https://python-poetry.org/). Any Python-related command must therefore be run using `poetry run <command>`. This will ensure that the correct environment is used. If the environment is not set up, the command will take care of installing all required dependencies, so you don't need to worry about that.
 
 ### Documentation
-We use [MkDocs](https://www.mkdocs.org/) and [mkdocstrings](https://mkdocstrings.github.io/) to automatically generate a documentation based on the docstrings in the source code. Therefore, it is important to always update the source code's docstrings according to your code changes. To check the updated docs, run `poetry run mkdocs serve` which will serve the documentation on your localhost. Run `mkdocs build` to build your documentation and update the site directory.
+We use [MkDocs](https://www.mkdocs.org/) and [mkdocstrings](https://mkdocstrings.github.io/) to automatically generate a documentation based on the docstrings in the source code. Therefore, it is important to always update the source code's docstrings according to your code changes. To check the updated docs, run `poetry run mkdocs serve` which will serve the documentation on your localhost.
 
 We followed [this guide](https://realpython.com/python-project-documentation-with-mkdocs/) to set up the automatic documentation, so look there for inspiration if you want to contribute to the documentation.
 
