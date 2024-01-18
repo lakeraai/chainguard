@@ -3,9 +3,9 @@
 In this tutorial, we show you how to guard your LangChain agent. Depending on whether you want to use an off-the-shelf agent or a custom agent, you need to take a different guarding approach:
 
 - [Guard your off-the-shelf agent](#off-the-shelf-agent) by creating a guarded LLM subclass that you can initialize your agent with
-- Guard your custom agent by using a guarded AgentExecutor subclass, either a [fully customizable agent](##custom-agent) or an [OpenAI assistant](##openai-assistant-in-langchain)
+- Guard your custom agent by using a guarded AgentExecutor subclass, either a [fully customizable agent](#custom-agent) or an [OpenAI assistant](#openai-assistant-in-langchain)
 
-When using these guarding options, each user prompt/tool answer that is fed into the agent's LLM gets checked by Lakera Guard. Upon AI risk detection (e.g.prompt injection), a `LakeraGuardError` or `LakeraGuardWarning` gets raised.
+When using these guarding options, each user prompt/tool answer that is fed into the agent's LLM gets checked by Lakera Guard. Upon AI risk detection (e.g.prompt injection), a `LakeraGuardError` or `LakeraGuardWarning` gets raised. Notice that only the answers of tools defined via LangChain are guarded, but if an agent has some built-in tools, the answer from those tools are not guarded. For further explanation, see guarding of [OpenAI assistant](##guarding-openai-assistant-in-langchain).
 
 The example code here focuses on securing agents based on OpenAI models, but the same principles apply to any [LLM model provider](https://python.langchain.com/docs/integrations/llms/) or [ChatLLM model provider](https://python.langchain.com/docs/integrations/chat/) that LangChain supports.
 
@@ -225,7 +225,8 @@ agent_executor.invoke({"content": PROMPT_INJECTION_text})
  'run_id': 'run_rQyHImxBKfjNgglzQ3C7fUir'}
 ```
 
-### Guarding OpenAI assistant in LangChain using a guarded AgentExecutor subclass
+### Guarding OpenAI assistant in LangChain using a guarded AgentExecutor subclass <a name="guarding-openai-assistant-in-langchain"></a>
+Notice that only the answers of tools defined via LangChain are guarded (i.e. those defined via the `tools` variable below), but if an agent has some built-in tools, the answers from those tools are not guarded. This means that if you use an OpenAI Assistant where you enabled the code interpreter tool, retrieval tool or defined a custom function call in the playground, these will not be guarded.
 ```python
 GuardedAgentExecutor = chain_guard.get_guarded_agent_executor()
 guarded_agent_executor = GuardedAgentExecutor(
