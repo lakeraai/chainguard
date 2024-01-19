@@ -72,11 +72,16 @@ class LakeraChainGuard:
             None
         """
         # We cannot set default value for api_key to
-        # os.environ.get("LAKERA_GUARD_API_KEY", "") because this would only be
+        # os.environ.get("LAKERA_GUARD_API_KEY") because this would only be
         # evaluated once when the class is created. This would mean that if the
         # user sets the environment variable after creating the class, the class
         # would not use the environment variable.
-        self.api_key = api_key or os.environ.get("LAKERA_GUARD_API_KEY", "")
+        self.api_key = api_key or os.environ.get("LAKERA_GUARD_API_KEY")
+        if not self.api_key:
+            raise ValueError(
+                "No Lakera Guard API key provided. Either provide it in the "
+                "constructor or set the environment variable LAKERA_GUARD_API_KEY."
+            )
         self.classifier = classifier
         self.classifier_args = classifier_args
         self.raise_error = raise_error

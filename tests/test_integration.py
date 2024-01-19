@@ -12,7 +12,7 @@ from langchain_openai import ChatOpenAI, OpenAI
 
 from lakera_chainguard import LakeraChainGuard, LakeraGuardError, LakeraGuardWarning
 
-api_key = os.environ.get("LAKERA_GUARD_API_KEY", "")
+api_key = os.environ.get("LAKERA_GUARD_API_KEY")
 
 
 @pytest.fixture(scope="session", autouse=True)
