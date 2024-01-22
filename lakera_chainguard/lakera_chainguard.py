@@ -55,8 +55,8 @@ class LakeraChainGuard:
     def __init__(
         self,
         api_key: str = "",
-        classifier: str = "prompt_injection",
-        classifier_args: dict = dict(),
+        endpoint: str = "prompt_injection",
+        additional_json_properties: dict = dict(),
         raise_error: bool = True,
     ) -> None:
         """
@@ -64,40 +64,47 @@ class LakeraChainGuard:
 
         Args:
             api_key: API key for Lakera Guard
-            classifier: which AI security risk you want to guard against, see also
-                classifiers available here: https://platform.lakera.ai/docs/api
+            endpoint: which AI security risk you want to guard against, see also
+                classifier endpoints available here: https://platform.lakera.ai/docs/api
+            additional_json_properties: add additional key-value pairs to the body of
+                the API request apart from 'input', e.g. domain_whitelist for pii
             raise_error: whether to raise an error or a warning if the classifier
-                detects AI security risk
+                endpoint detects AI security risk
         Returns:
             None
         """
-        # We cannot set default value for api_key to
-        # os.environ.get("LAKERA_GUARD_API_KEY", "") because this would only be
+        # In the arguments of the __init__, we cannot set api_key: str =
+        # os.environ.get("LAKERA_GUARD_API_KEY") because this would only be
         # evaluated once when the class is created. This would mean that if the
         # user sets the environment variable after creating the class, the class
         # would not use the environment variable.
         self.api_key = api_key or os.environ.get("LAKERA_GUARD_API_KEY", "")
-        self.classifier = classifier
-        self.classifier_args = classifier_args
+        self.endpoint = endpoint
+        self.additional_json_properties = additional_json_properties
         self.raise_error = raise_error
 
     def call_lakera_guard(self, query: Union[str, list[dict[str, str]]]) -> dict:
         """
         Makes an API request to the Lakera Guard API endpoint specified in
-        self.classifier.
+        self.endpoint.
 
         Args:
             query: User prompt or list of message containing system, user
                 and assistant roles.
         Returns:
-            The classifier's API response as dict
+            The endpoints's API response as dict
         """
         request_input = {"input": query}
 
-        request_body = request_input | self.classifier_args
+        if "input" in self.additional_json_properties:
+            raise ValueError(
+                'You cannot specify the "input" argument in additional_json_properties.'
+            )
+
+        request_body = self.additional_json_properties | request_input
 
         response = session.post(
-            f"https://api.lakera.ai/v1/{self.classifier}",
+            f"https://api.lakera.ai/v1/{self.endpoint}",
             json=request_body,
             headers={"Authorization": f"Bearer {self.api_key}"},
         )
@@ -142,7 +149,7 @@ class LakeraChainGuard:
                         formatted_input[1]["content"] = message.content
                     else:  # must be AIMessage
                         formatted_input[2]["content"] = message.content
-                if self.classifier != "prompt_injection":
+                if self.endpoint != "prompt_injection":
                     return formatted_input[1]["content"]
                 return formatted_input
             else:
@@ -150,7 +157,7 @@ class LakeraChainGuard:
 
     def detect(self, prompt: GuardInput) -> GuardInput:
         """
-        If input contains AI security risk specified in self.classifier, raises either
+        If input contains AI security risk specified in self.endpoint, raises either
         LakeraGuardError or LakeraGuardWarning depending on self.raise_error True or
         False. Otherwise, lets input through.
 
@@ -166,12 +173,12 @@ class LakeraChainGuard:
         if lakera_guard_response["results"][0]["flagged"]:
             if self.raise_error:
                 raise LakeraGuardError(
-                    f"Lakera Guard detected {self.classifier}.", lakera_guard_response
+                    f"Lakera Guard detected {self.endpoint}.", lakera_guard_response
                 )
             else:
                 warnings.warn(
                     LakeraGuardWarning(
-                        f"Lakera Guard detected {self.classifier}.",
+                        f"Lakera Guard detected {self.endpoint}.",
                         lakera_guard_response,
                     )
                 )
@@ -180,13 +187,13 @@ class LakeraChainGuard:
 
     def detect_with_response(self, prompt: GuardInput) -> dict:
         """
-        Returns detection result of AI security risk specified in self.classifier
+        Returns detection result of AI security risk specified in self.endpoint
         with regard to the input.
 
         Args:
             input: input to check regarding AI security risk
         Returns:
-            detection result of AI security risk specified in self.classifier
+            detection result of AI security risk specified in self.endpoint
         """
         formatted_input = self.format_to_lakera_guard_input(prompt)
 
@@ -197,7 +204,7 @@ class LakeraChainGuard:
     def get_guarded_llm(self, type_of_llm: Type[BaseLLM]) -> Type[BaseLLM]:
         """
         Creates a subclass of type_of_llm where the input to the LLM always gets
-        checked w.r.t. AI security risk specified in self.classifier.
+        checked w.r.t. AI security risk specified in self.endpoint.
 
         Args:
             type_of_llm: any type of LangChain's LLMs
@@ -228,7 +235,7 @@ class LakeraChainGuard:
     ) -> Type[BaseChatModel]:
         """
         Creates a subclass of type_of_chat_llm in which the input to the ChatLLM always
-          gets checked w.r.t. AI security risk specified in self.classifier.
+          gets checked w.r.t. AI security risk specified in self.endpoint.
 
         Args:
             type_of_llm: any type of LangChain's ChatLLMs
@@ -258,7 +265,7 @@ class LakeraChainGuard:
         """
         Creates a subclass of the AgentExecutor in which the input to the LLM that the
         AgentExecutor is initialized with gets checked w.r.t. AI security risk specified
-        in self.classifier.
+        in self.endpoint.
 
         Returns:
             Guarded AgentExecutor subclass

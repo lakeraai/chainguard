@@ -60,8 +60,8 @@ def test_guard():
 def test_guard_for_unknown_links():
     chain_guard_for_unknown_links = LakeraChainGuard(
         api_key=api_key,
-        classifier="unknown_links",
-        classifier_args={"domain_whitelist": ["lakera.ai"]},
+        endpoint="unknown_links",
+        additional_json_properties={"domain_whitelist": ["lakera.ai"]},
     )
 
     # known link
