@@ -56,7 +56,7 @@ def test_guard():
     ]
 
 
-# this also tests the classifier and classifer_args arguments
+# this also tests the endpoint and additional_json_properties arguments
 def test_guard_for_unknown_links():
     chain_guard_for_unknown_links = LakeraChainGuard(
         api_key=api_key,

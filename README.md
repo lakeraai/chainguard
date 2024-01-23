@@ -94,7 +94,7 @@ from lakera_chainguard import LakeraChainGuard, LakeraGuardError
 openai_api_key = os.getenv("OPENAI_API_KEY")
 lakera_guard_api_key = os.getenv("LAKERA_GUARD_API_KEY")
 
-chain_guard = LakeraChainGuard(api_key=lakera_guard_api_key, classifier="prompt_injection", raise_error=True)
+chain_guard = LakeraChainGuard(api_key=lakera_guard_api_key, endpoint="prompt_injection", raise_error=True)
 
 chain_guard_detector = RunnableLambda(chain_guard.detect)
 
@@ -128,7 +128,7 @@ from lakera_chainguard import LakeraChainGuard, LakeraGuardError
 openai_api_key = os.getenv("OPENAI_API_KEY")
 lakera_guard_api_key = os.getenv("LAKERA_GUARD_API_KEY")
 
-chain_guard = LakeraChainGuard(api_key=lakera_guard_api_key, classifier="prompt_injection")
+chain_guard = LakeraChainGuard(api_key=lakera_guard_api_key, endpoint="prompt_injection")
 
 GuardedOpenAILLM = chain_guard.get_guarded_llm(OpenAI)
 

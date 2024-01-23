@@ -1,6 +1,6 @@
 # Automatically Redacting Personally Identifiable Information (PII)
 
-Instead of raising an error and stopping the execution of your chain, you can also use a RunnableLambda with the PII classifier to redact the PII entities from the user's input and pass the updated input to the next step in your chain.
+Instead of raising an error and stopping the execution of your chain, you can also use a RunnableLambda with the PII classifier endpoint to redact the PII entities from the user's input and pass the updated input to the next step in your chain.
 
 Here's an example input we can test with that contains some fictional PII:
 
@@ -20,7 +20,7 @@ from langchain_openai import OpenAI
 from lakera_chainguard import LakeraChainGuard, LakeraGuardWarning
 
 # disable exceptions and raise a warning instead
-pii_guard = LakeraChainGuard(classifier="pii", raise_error=False)
+pii_guard = LakeraChainGuard(endpoint="pii", raise_error=False)
 
 llm = OpenAI()
 
@@ -34,7 +34,7 @@ def redact_pii(prompt):
         if len(w):
             print(f"Warning: {w[-1].message}")
 
-            # the PII classifier provides the identified entities in the payload property
+            # the PII endpoint provides the identified entities in the payload property
             entities = w[-1].message.lakera_guard_response["results"][0]["payload"]["pii"]
 
             # iterate through the detected PII and redact it

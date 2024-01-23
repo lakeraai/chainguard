@@ -16,6 +16,7 @@ from langchain_core.outputs import ChatResult, LLMResult
 
 GuardInput = Union[str, List[BaseMessage], PromptValue]
 NextStepOutput = List[Union[AgentFinish, AgentAction, AgentStep]]
+GuardChatMessages = list[dict[str, str]]
 
 
 class LakeraGuardError(RuntimeError):
@@ -88,7 +89,7 @@ class LakeraChainGuard:
         self.additional_json_properties = additional_json_properties
         self.raise_error = raise_error
 
-    def call_lakera_guard(self, query: Union[str, list[dict[str, str]]]) -> dict:
+    def call_lakera_guard(self, query: Union[str, GuardChatMessages]) -> dict:
         """
         Makes an API request to the Lakera Guard API endpoint specified in
         self.endpoint.
