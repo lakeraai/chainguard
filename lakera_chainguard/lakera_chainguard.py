@@ -75,10 +75,15 @@ class LakeraChainGuard:
         """
         # In the arguments of the __init__, we cannot set api_key: str =
         # os.environ.get("LAKERA_GUARD_API_KEY") because this would only be
-        # evaluated once when the class is created. This would mean that if the
-        # user sets the environment variable after creating the class, the class
-        # would not use the environment variable.
-        self.api_key = api_key or os.environ.get("LAKERA_GUARD_API_KEY", "")
+        # evaluated once when the class is imported. This would mean that if the
+        # user sets the environment variable (e.g. via load_dotenv()) after importing
+        # the class , the class would not use the environment variable.
+        self.api_key = api_key or os.environ.get("LAKERA_GUARD_API_KEY")
+        if not self.api_key:
+            raise ValueError(
+                "No Lakera Guard API key provided. Either provide it in the "
+                "constructor or set the environment variable LAKERA_GUARD_API_KEY."
+            )
         self.endpoint = endpoint
         self.additional_json_properties = additional_json_properties
         self.raise_error = raise_error
