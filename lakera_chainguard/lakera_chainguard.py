@@ -89,7 +89,7 @@ class LakeraChainGuard:
         self.additional_json_properties = additional_json_properties
         self.raise_error = raise_error
 
-    def call_lakera_guard(self, query: Union[str, GuardChatMessages]) -> dict:
+    def _call_lakera_guard(self, query: Union[str, GuardChatMessages]) -> dict:
         """
         Makes an API request to the Lakera Guard API endpoint specified in
         self.endpoint.
@@ -152,7 +152,7 @@ class LakeraChainGuard:
 
         return response_body
 
-    def format_to_lakera_guard_input(
+    def _convert_to_lakera_guard_input(
         self, prompt: GuardInput
     ) -> Union[str, list[dict[str, str]]]:
         """
@@ -205,9 +205,9 @@ class LakeraChainGuard:
         Returns:
             prompt unchanged
         """
-        formatted_input = self.format_to_lakera_guard_input(prompt)
+        formatted_input = self._convert_to_lakera_guard_input(prompt)
 
-        lakera_guard_response = self.call_lakera_guard(formatted_input)
+        lakera_guard_response = self._call_lakera_guard(formatted_input)
 
         if lakera_guard_response["results"][0]["flagged"]:
             if self.raise_error:
@@ -234,9 +234,9 @@ class LakeraChainGuard:
         Returns:
             detection result of AI security risk specified in self.endpoint
         """
-        formatted_input = self.format_to_lakera_guard_input(prompt)
+        formatted_input = self._convert_to_lakera_guard_input(prompt)
 
-        lakera_guard_response = self.call_lakera_guard(formatted_input)
+        lakera_guard_response = self._call_lakera_guard(formatted_input)
 
         return lakera_guard_response
 
