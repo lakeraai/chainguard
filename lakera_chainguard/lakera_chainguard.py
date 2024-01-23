@@ -114,8 +114,41 @@ class LakeraChainGuard:
             json=request_body,
             headers={"Authorization": f"Bearer {self.api_key}"},
         )
-
         response_body = response.json()
+
+        # Error handling
+        if "error" in response_body:
+            if response_body["error"] == "Unauthorized":
+                raise ValueError(
+                    str(response_body) + " Please provide a valid Lakera Guard API key."
+                )
+            elif response_body["error"] == "Invalid Request":
+                raise ValueError(
+                    str(response_body)
+                    + (
+                        f" Provided properties {str(self.additional_json_properties)} "
+                        "in 'additional_json_properties' are not valid."
+                    )
+                )
+            else:
+                raise ValueError(str(response_body))
+        if "code" in response_body:
+            errormessage = str(response_body)
+            if self.endpoint not in {
+                "prompt_injection",
+                "moderation",
+                "pii",
+                "relevant_language",
+                "sentiment",
+                "unknown_links",
+            }:
+                errormessage += (
+                    f" Provided endpoint {self.endpoint} is not supported "
+                    "by Lakera Guard."
+                )
+            raise ValueError(errormessage)
+        if "results" not in response_body:
+            raise ValueError(str(response_body))
 
         return response_body
 
