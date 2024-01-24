@@ -28,7 +28,7 @@ We use [MkDocs](https://www.mkdocs.org/) and [mkdocstrings](https://mkdocstrings
 We followed [this guide](https://realpython.com/python-project-documentation-with-mkdocs/) to set up the automatic documentation, so look there for inspiration if you want to contribute to the documentation.
 
 ### Pre-Commit Hooks
-We use [pre-commit](https://pre-commit.com/) to run a series of checks on the code before it is committed. This ensures that the code is formatted correctly, that the tests pass, and that the code is properly typed. To set up the pre-commit/pre-push hooks, run `poetry run pre-commit install` and `poetry run pre-commit install --hook-type pre-push` in the root of the repository.
+We use [pre-commit](https://pre-commit.com/) to run a series of checks on the code before it is committed. This ensures that the code is formatted correctly, that the tests pass, and that the code is properly typed. To set up the pre-commit/pre-push hooks, run `poetry run pre-commit install` in the root of the repository.
 
 ## Submitting a Pull Request
 When you submit a Pull Request, please make sure to include a detailed description of the changes you made, and to reference any issues that are related to the Pull Request. We will review your Pull Request and merge it if it is in line with our goals for the project.
