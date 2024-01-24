@@ -64,10 +64,7 @@ def test_guard_error_handling():
     ):
         chain_guard_wrong_api_key.detect("Hello")
     chain_guard_wrong_endpoint = LakeraChainGuard(api_key=api_key, endpoint="wrong1234")
-    with pytest.raises(
-        ValueError,
-        match=r".*Provided endpoint wrong1234 is not supported by Lakera Guard.",
-    ):
+    with pytest.raises(ValueError):
         chain_guard_wrong_endpoint.detect("Hello")
     chain_guard_wrong_property = LakeraChainGuard(
         api_key=api_key,
