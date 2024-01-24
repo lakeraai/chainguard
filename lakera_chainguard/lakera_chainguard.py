@@ -2,21 +2,37 @@ from __future__ import annotations
 
 import os
 import warnings
-from typing import Any, Dict, List, Optional, Tuple, Type, Union
+from typing import Any, Dict, List, Optional, Tuple, Type, Union, Literal, TypeVar
 
 import requests
 from langchain.agents import AgentExecutor
 from langchain.schema import BaseMessage, PromptValue
 from langchain.tools import BaseTool
-from langchain_core.agents import AgentAction, AgentFinish, AgentStep
-from langchain_core.callbacks import CallbackManagerForLLMRun
+from langchain_core.agents import AgentStep
+from langchain.callbacks.manager import (
+    CallbackManagerForLLMRun,
+    CallbackManagerForChainRun,
+)
+from langchain.schema.agent import AgentFinish, AgentAction
 from langchain_core.language_models import BaseChatModel, BaseLLM
 from langchain_core.messages import AIMessage, HumanMessage, SystemMessage
 from langchain_core.outputs import ChatResult, LLMResult
 
+# from langchain.callbacks.manager import CallbackManagerForChainRun
+
 GuardInput = Union[str, List[BaseMessage], PromptValue]
 NextStepOutput = List[Union[AgentFinish, AgentAction, AgentStep]]
 GuardChatMessages = list[dict[str, str]]
+Endpoints = Literal[
+    "prompt_injection",
+    "moderation",
+    "pii",
+    "relevant_language",
+    "sentiment",
+    "unknown_links",
+]
+BaseLLMT = TypeVar("BaseLLMT", bound=BaseLLM)
+BaseChatModelT = TypeVar("BaseChatModelT", bound=BaseChatModel)
 
 
 class LakeraGuardError(RuntimeError):
@@ -56,7 +72,7 @@ class LakeraChainGuard:
     def __init__(
         self,
         api_key: str = "",
-        endpoint: str = "prompt_injection",
+        endpoint: Endpoints = "prompt_injection",
         additional_json_properties: dict = dict(),
         raise_error: bool = True,
     ) -> None:
@@ -132,21 +148,6 @@ class LakeraChainGuard:
                 )
             else:
                 raise ValueError(str(response_body))
-        if "code" in response_body:
-            errormessage = str(response_body)
-            if self.endpoint not in {
-                "prompt_injection",
-                "moderation",
-                "pii",
-                "relevant_language",
-                "sentiment",
-                "unknown_links",
-            }:
-                errormessage += (
-                    f" Provided endpoint {self.endpoint} is not supported "
-                    "by Lakera Guard."
-                )
-            raise ValueError(errormessage)
         if "results" not in response_body:
             raise ValueError(str(response_body))
 
@@ -240,7 +241,7 @@ class LakeraChainGuard:
 
         return lakera_guard_response
 
-    def get_guarded_llm(self, type_of_llm: Type[BaseLLM]) -> Type[BaseLLM]:
+    def get_guarded_llm(self, type_of_llm: Type[BaseLLMT]) -> Type[BaseLLMT]:
         """
         Creates a subclass of type_of_llm where the input to the LLM always gets
         checked w.r.t. AI security risk specified in self.endpoint.
@@ -252,7 +253,7 @@ class LakeraChainGuard:
         """
         lakera_guard_instance = self
 
-        class GuardedLLM(type_of_llm):
+        class GuardedLLM(type_of_llm):  # type: ignore
             @property
             def _llm_type(self) -> str:
                 return "guarded_" + super()._llm_type
@@ -270,8 +271,8 @@ class LakeraChainGuard:
         return GuardedLLM
 
     def get_guarded_chat_llm(
-        self, type_of_chat_llm: Type[BaseChatModel]
-    ) -> Type[BaseChatModel]:
+        self, type_of_chat_llm: Type[BaseChatModelT]
+    ) -> Type[BaseChatModelT]:
         """
         Creates a subclass of type_of_chat_llm in which the input to the ChatLLM always
           gets checked w.r.t. AI security risk specified in self.endpoint.
@@ -283,7 +284,7 @@ class LakeraChainGuard:
         """
         lakera_guard_instance = self
 
-        class GuardedChatLLM(type_of_chat_llm):
+        class GuardedChatLLM(type_of_chat_llm):  # type: ignore
             @property
             def _llm_type(self) -> str:
                 return "guarded_" + super()._llm_type
@@ -318,9 +319,8 @@ class LakeraChainGuard:
                 color_mapping: Dict[str, str],
                 inputs: Dict[str, str],
                 intermediate_steps: List[Tuple[AgentAction, str]],
-                *args,
-                **kwargs,
-            ):
+                run_manager: CallbackManagerForChainRun | None = None,
+            ) -> Union[AgentFinish, List[Tuple[AgentAction, str]]]:
                 for val in inputs.values():
                     lakera_guard_instance.detect(val)
 
@@ -329,8 +329,7 @@ class LakeraChainGuard:
                     color_mapping,
                     inputs,
                     intermediate_steps,
-                    *args,
-                    **kwargs,
+                    run_manager,
                 )
 
                 for act in intermediate_steps:
