@@ -56,12 +56,34 @@ def test_guard():
     ]
 
 
-# this also tests the classifier and classifer_args arguments
+def test_guard_error_handling():
+    chain_guard_wrong_api_key = LakeraChainGuard(api_key="wrong1234")
+    with pytest.raises(
+        ValueError,
+        match=r".*Please provide a valid Lakera Guard API key.",
+    ):
+        chain_guard_wrong_api_key.detect("Hello")
+    chain_guard_wrong_endpoint = LakeraChainGuard(api_key=api_key, endpoint="wrong1234")
+    with pytest.raises(ValueError):
+        chain_guard_wrong_endpoint.detect("Hello")
+    chain_guard_wrong_property = LakeraChainGuard(
+        api_key=api_key,
+        endpoint="unknown_links",
+        additional_json_properties={"wrong1234": ["lakera.ai"]},
+    )
+    with pytest.raises(
+        ValueError,
+        match=r".*Provided properties.*in 'additional_json_properties' are not valid.",
+    ):
+        chain_guard_wrong_property.detect("Hello")
+
+
+# this also tests the endpoint and additional_json_properties arguments
 def test_guard_for_unknown_links():
     chain_guard_for_unknown_links = LakeraChainGuard(
         api_key=api_key,
-        classifier="unknown_links",
-        classifier_args={"domain_whitelist": ["lakera.ai"]},
+        endpoint="unknown_links",
+        additional_json_properties={"domain_whitelist": ["lakera.ai"]},
     )
 
     # known link

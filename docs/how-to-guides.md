@@ -4,7 +4,7 @@ You already have some LangChain code that uses either an LLM or agent? Then look
 Make sure you have installed the **Lakera ChainGuard** package and got your Lakera Guard API key as an environment variable.
 ```python
 from lakera_chainguard import LakeraChainGuard
-chain_guard = LakeraChainGuard(classifier="prompt_injection", raise_error=True)
+chain_guard = LakeraChainGuard(endpoint="prompt_injection", raise_error=True)
 ```
 
 ### Guarding LLM
