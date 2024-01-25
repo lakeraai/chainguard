@@ -1,10 +1,15 @@
 [tool.poetry]
 name = "lakera-chainguard"
-version = "0.0.1"
+version = "0.1.0"
 description = "Guard your LangChain applications against prompt injection with Lakera Guard"
+homepage = "https://lakeraai.github.io/chainguard/"
+repository = "https://github.com/lakeraai/chainguard"
+documentation = "https://lakeraai.github.io/chainguard/"
 authors = ["Frawa Vetterli <fv@lakera.ai>"]
+maintainers = ["Lakera <opensource@lakera.ai>"]
 readme = "README.md"
 license = "MIT"
+keywords = ["llm", "langchain", "prompt-injection", "llm-security", "lakera-guard", "lakera", "langchain-python"]
 
 [tool.poetry.dependencies]
 python = "^3.10"
