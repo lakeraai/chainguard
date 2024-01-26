@@ -51,4 +51,4 @@ jobs:
         LAKERA_GUARD_API_KEY: ${{ secrets.LAKERA_GUARD_API_KEY }}
         OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
       run: |
-        poetry run mkdocs gh-deploy
+        poetry run mkdocs gh-deploy --quite --force
