@@ -3,7 +3,7 @@
 #  https://github.com/snok/install-poetry
 #  https://jacobian.org/til/github-actions-poetry/
 
-name: Publish Docs
+name: Release Version
 
 on:
   push:
@@ -52,3 +52,22 @@ jobs:
         OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
       run: |
         poetry run mkdocs gh-deploy --quiet --force
+
+  release:
+    needs: [publish]
+    runs-on: ubuntu-latest
+    concurrency: release
+
+    permissions:
+      id-token: write
+      contents: write
+
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Python Semantic Release
+      uses: python-semantic-release/python-semantic-release@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}

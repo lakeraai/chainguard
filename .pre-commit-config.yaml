@@ -11,8 +11,8 @@ repos:
         name: No mixed line endings (LF and CRLF)
         stages: [commit]
       - id: no-commit-to-branch
-        name: Not committing to master
-        args: [--branch, master]
+        name: Not committing to main
+        args: [--branch, main]
         stages: [commit]
 
   - repo: https://github.com/psf/black
@@ -47,3 +47,13 @@ repos:
         types: [python]
         pass_filenames: false
         verbose: true
+
+  # conventional commits
+  - repo: https://github.com/espressif/conventional-precommit-linter
+    rev: v1.6.0
+    hooks:
+      - id: conventional-precommit-linter
+        stages: [commit-msg]
+        args:
+          - --types=chore,feat,fix,ci,docs,refactor,revert,test
+          - --allow-breaking
