@@ -2,6 +2,7 @@
 #  https://til.simonwillison.net/pypi/pypi-releases-from-github
 #  https://github.com/snok/install-poetry
 #  https://jacobian.org/til/github-actions-poetry/
+#  https://github.com/orgs/community/discussions/25305#discussioncomment-8256560
 
 name: Release Version
 
@@ -15,7 +16,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  publish:
+  docs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
@@ -54,7 +55,7 @@ jobs:
         poetry run mkdocs gh-deploy --quiet --force
 
   release:
-    needs: [publish]
+    needs: [docs]
     runs-on: ubuntu-latest
     concurrency: release
 
@@ -63,11 +64,22 @@ jobs:
       contents: write
 
     steps:
-    - uses: actions/checkout@v4
-      with:
-        fetch-depth: 0
+      - uses: actions/create-github-app-token@v1
+        id: app-token
+        with:
+          app-id: ${{ vars.RELEASE_VERSION_BUMP_APP_ID }}
+          private-key: ${{ secrets.RELEASE_VERSION_BUMP_PRIVATE_KEY }}
 
-    - name: Python Semantic Release
-      uses: python-semantic-release/python-semantic-release@master
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ steps.app-token.outputs.token }}
+
+      - run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+
+      - name: Python Semantic Release
+        uses: python-semantic-release/python-semantic-release@master
+        with:
+          github_token: ${{ steps.app-token.outputs.token }}
