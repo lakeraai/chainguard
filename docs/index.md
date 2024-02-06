@@ -33,10 +33,17 @@ except LakeraGuardError as e:
 
 We have tutorials, how-to guides, and [an API reference](https://lakeraai.github.io/chainguard/reference/) to help you explore ChainGuard:
 
-- **How-To Guides**: are designed to quickly demonstrate how to implement ChainGuard functionality
-  - [General ChainGuard Usage](https://lakeraai.github.io/chainguard/how-to-guides/)
-  - [Redacting Personally Identifiable Information (PII)](https://lakeraai.github.io/chainguard/how-tos/pii-redaction/)
-- **Tutorials**: are designed to give you an in-depth understanding of how and why you would use ChainGuard
-  - [Agent Tutorial](https://lakeraai.github.io/chainguard/tutorials/tutorial_agent/)
-  - [Large Language Model (LLM) Tutorial](https://lakeraai.github.io/chainguard/tutorials/tutorial_llm/)
-  - [Retrieval Augmented Generation (RAG) Tutorial](https://lakeraai.github.io/chainguard/tutorials/tutorial_rag/)
+### How-To Guides
+
+How-Tos are designed to quickly demonstrate how to implement ChainGuard functionality:
+
+- [General ChainGuard Usage](https://lakeraai.github.io/chainguard/how-to-guides/): quick reference snippets for integrating ChainGuard into your LangChain apps
+- [Redacting Personally Identifiable Information (PII)](https://lakeraai.github.io/chainguard/how-tos/pii-redaction/): example of automatically redacting PII in prompts before you send them to an LLM
+
+### Tutorials
+
+Tutorials are designed to give you an in-depth understanding of how and why you would use ChainGuard:
+
+- [Agent Tutorial](https://lakeraai.github.io/chainguard/tutorials/tutorial_agent/): learn how to use ChainGuard to guard your LangChain agents
+- [Large Language Model (LLM) Tutorial](https://lakeraai.github.io/chainguard/tutorials/tutorial_llm/): learn how to use ChainGuard to guard your LangChain LLM apps
+- [Retrieval Augmented Generation (RAG) Tutorial](https://lakeraai.github.io/chainguard/tutorials/tutorial_rag/): learn how to use ChainGuard to guard your LangChain-powered RAG apps
