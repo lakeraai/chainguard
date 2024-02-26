@@ -2,13 +2,19 @@
 
 In this demo we'll explore how we can guard our LangChain-powered RAG apps against indirect prompt injection attacks.
 
-**Note**: We'll be following [LangChain's RAG Quickstart](https://python.langchain.com/docs/use_cases/question_answering/quickstart).
+**Note**: We'll be following [LangChain's RAG Quickstart](https://python.langchain.com/docs/use_cases/question_answering/quickstart), but using a different demo URL.
+
+## Video tutorial
+
+We recorded a video tutorial that walks through the documentation below and explains how to guard a RAG chain against indirect prompt injections with ChainGuard.
+
+[![Watch a video tutorial](../assets/video_thumb.png)](https://youtu.be/MdZ6XnViY3o)
 
 ## Setup
 
 We'll start by importing the libraries we'll need for this demo.
 
-**Note**: To run the code from this tutorial, you'll need a [Lakera Guard API key](https://platform.lakera.ai/account/api-keys) and an [OpenAI API key](https://platform.openai.com/api-keys) set in your current environment or pass them into the `LakeraChainGuard` and `ChatOpenAI` constructors as `api_key` and `open_api_key`.
+**Note**: To run the code from this tutorial, you'll need a [Lakera Guard API key](https://platform.lakera.ai/account/api-keys) and an [OpenAI API key](https://platform.openai.com/api-keys) set in your current environment as `LAKERA_GUARD_API_KEY` and `OPENAI_API_KEY`, or you can pass them directly into the constructors: `LakeraChainGuard(api_key="")` and `ChatOpenAI(openai_api_key="")`.
 
 ```python
 import bs4
