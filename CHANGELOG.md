@@ -2,6 +2,33 @@
 
 
 
+## v0.1.1 (2024-02-28)
+
+### Chore
+
+* chore: update formatting of learn more section in docs ([`ff7068b`](https://github.com/lakeraai/chainguard/commit/ff7068b332c84559e9c7d361f0d1dafac9e37a4f))
+
+* chore: skip main branch action for tag push from CI ([`b0e10a1`](https://github.com/lakeraai/chainguard/commit/b0e10a14b7ac6e990adbf52c537fe793eb2bad96))
+
+### Fix
+
+* fix: update typo in RAG tutorial; add video ([`d04251e`](https://github.com/lakeraai/chainguard/commit/d04251ed75d292345b1828f0bc7dfa80f6a29caa))
+
+### Unknown
+
+* Merge pull request #33 from lakeraai/feature/rag-tutorial-fix
+
+fix: update typo in RAG tutorial; add video ([`fe59b29`](https://github.com/lakeraai/chainguard/commit/fe59b299647dac8fa045fbe93b85a1b01a6c44d5))
+
+* Merge pull request #32 from lakeraai/feature/learn-more-links
+
+chore: update formatting of learn more section in docs ([`1f1be9c`](https://github.com/lakeraai/chainguard/commit/1f1be9c92e0cf0f6aa4d094ec19bb175ea66ce9a))
+
+* Merge pull request #31 from lakeraai/feature/skip-tag-push
+
+chore: skip main branch action for tag push from CI ([`a3031fe`](https://github.com/lakeraai/chainguard/commit/a3031fef8cfd5ec3390d9ec054f1e97d3cd7dc60))
+
+
 ## v0.1.0 (2024-01-29)
 
 ### Chore
