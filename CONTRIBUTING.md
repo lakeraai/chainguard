@@ -8,7 +8,7 @@ The package `lakera_chainguard` allows you to secure Large Language Model (LLM) 
 
 ## How to Contribute
 
-This project is open to contributions from anyone. We welcome contributions of all kinds. If you want to give feedback, report a bug or request a feature, please open an [issue](https://docs.github.com/en/issues/tracking-your-work-with-issues/creating-an-issue). If you want to contribute code or documentation, please submit a pull request on the [GitHub repository](https://github.com/lakeraai/lakera_langchain_integration). We will review your contribution and merge it if it is in line with our goals for the package.
+This project is open to contributions from anyone. We welcome contributions of all kinds. If you want to give feedback, report a bug or request a feature, please open an [issue](https://docs.github.com/en/issues/tracking-your-work-with-issues/creating-an-issue). If you want to contribute code or documentation, please submit a pull request on the [GitHub repository](https://github.com/lakeraai/chainguard). We will review your contribution and merge it if it is in line with our goals for the package.
 
 ### Style Guide
 We follow the [PEP 8](https://www.python.org/dev/peps/pep-0008/) style guide. We use [Black](https://github.com/psf/black) to automatically format our code. We perform static type checking with [mypy](http://mypy-lang.org/).
@@ -51,7 +51,7 @@ After you've made your changes and updated any necessary tests, you can commit y
 
     **Note**: This repo uses `pre-commit` hooks to run [`ruff`](https://github.com/astral-sh/ruff), [`black`](https://github.com/psf/black), and [`isort`](https://github.com/PyCQA/isort) on your code before committing. If any of these checks fail, your commit will be rejected and you will need to stage the changes again and commit them again.
 5. Push your `feature/*` branch to your fork
-6. Open a [Pull Request](https://github.com/lakeraai/guard-python-sdk/pulls) to the `main` branch from your `feature/*` branch
+6. Open a [Pull Request](https://github.com/lakeraai/chainguard/pulls) to the `main` branch from your `feature/*` branch
 
 ### Submitting a Pull Request
 
