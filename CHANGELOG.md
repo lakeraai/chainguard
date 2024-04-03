@@ -2,6 +2,19 @@
 
 
 
+## v0.1.2 (2024-04-03)
+
+### Fix
+
+* fix: update links from older versions of guide with previous repo URLs ([`1c6c7f4`](https://github.com/lakeraai/chainguard/commit/1c6c7f4db49cc3c4ad40e6b8d4fc9f40f03d5b9f))
+
+### Unknown
+
+* Merge pull request #34 from lakeraai/feature/fix-contributing-links
+
+fix: update links from older versions of guide with previous repo URLs ([`cdf04ab`](https://github.com/lakeraai/chainguard/commit/cdf04abd1545b0001af7d4ceda316ecf571ee074))
+
+
 ## v0.1.1 (2024-02-28)
 
 ### Chore
