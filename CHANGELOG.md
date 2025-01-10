@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## v0.1.3 (2025-01-10)
+
+### Chore
+
+* chore: Merge pull request #37: Manually add griffe to unbreak doc generation (8b6ed83)
+
+### Security
+
+* security: Merge pull request #36: [CS-157] Update langchain-core due to critical vuln (d1b880e) 
 
 
 ## v0.1.2 (2024-04-03)
