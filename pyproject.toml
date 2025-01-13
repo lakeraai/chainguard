@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "lakera-chainguard"
-version = "0.1.4"
+version = "0.1.5"
 description = "Guard your LangChain applications against prompt injection with Lakera Guard"
 homepage = "https://lakeraai.github.io/chainguard/"
 repository = "https://github.com/lakeraai/chainguard"

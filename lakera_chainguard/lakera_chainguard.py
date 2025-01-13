@@ -171,26 +171,25 @@ class LakeraChainGuard:
             if isinstance(prompt, PromptValue):
                 prompt = prompt.to_messages()
             if isinstance(prompt, List):
-                formatted_input = [
-                    {"role": "system", "content": ""},
-                    {"role": "user", "content": ""},
-                    {"role": "assistant", "content": ""},
-                ]
-                # For system, human, assistant, we put the last message of each
-                # type in the guard input
+                user_message = ""
+                formatted_input = []
                 for message in prompt:
                     if not isinstance(
                         message, (HumanMessage, SystemMessage, AIMessage)
                     ) or not isinstance(message.content, str):
                         raise TypeError("Input type not supported by Lakera Guard.")
+
+                    role = "assistant"
                     if isinstance(message, SystemMessage):
-                        formatted_input[0]["content"] = message.content
+                        role = "system"
                     elif isinstance(message, HumanMessage):
-                        formatted_input[1]["content"] = message.content
-                    else:  # must be AIMessage
-                        formatted_input[2]["content"] = message.content
+                        user_message = message.content
+                        role = "user"
+
+                    formatted_input.append({"role": role, "content": message.content})
+
                 if self.endpoint != "prompt_injection":
-                    return formatted_input[1]["content"]
+                    return user_message
                 return formatted_input
             else:
                 return str(prompt)
