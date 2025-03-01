@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## v0.1.6 (2025-03-03)
+
+### Security
+
+* security: Update langchain and langchain-community due to medium vulnerabilities.
+
 ## v0.1.4 (2025-01-10)
 
 ### Chore
