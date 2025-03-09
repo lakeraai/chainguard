@@ -4,7 +4,7 @@ Welcome, dear contributor. We are glad you are here. This document will guide yo
 
 ## Project Overview
 
-The package `lakera_chainguard` allows you to secure Large Language Model (LLM) applications and agents built with [LangChain](https://www.langchain.com/) from [prompt injection and jailbreaks](https://platform.lakera.ai/docs/prompt_injection) (and [other risks](https://platform.lakera.ai/docs/api)) with [Lakera Guard](https://www.lakera.ai/).
+The package `lakera-chainguard` allows you to secure Large Language Model (LLM) applications and agents built with [LangChain](https://www.langchain.com/) from [prompt injection and jailbreaks](https://platform.lakera.ai/docs/prompt_injection) (and [other risks](https://platform.lakera.ai/docs/api)) with [Lakera Guard](https://www.lakera.ai/).
 
 ## How to Contribute
 
