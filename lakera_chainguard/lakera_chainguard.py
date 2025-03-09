@@ -6,14 +6,15 @@ from typing import Any, Dict, List, Optional, Tuple, Type, Union, Literal, TypeV
 
 import requests
 from langchain.agents import AgentExecutor
-from langchain.schema import BaseMessage, PromptValue
+from langchain_core.messages import BaseMessage
+from langchain_core.prompt_values import PromptValue
 from langchain.tools import BaseTool
 from langchain_core.agents import AgentStep
 from langchain.callbacks.manager import (
     CallbackManagerForLLMRun,
     CallbackManagerForChainRun,
 )
-from langchain.schema.agent import AgentFinish, AgentAction
+from langchain_core.agents import AgentFinish, AgentAction
 from langchain_core.language_models import BaseChatModel, BaseLLM
 from langchain_core.messages import AIMessage, HumanMessage, SystemMessage
 from langchain_core.outputs import ChatResult, LLMResult
