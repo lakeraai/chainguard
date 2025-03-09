@@ -4,7 +4,7 @@ Secure Large Language Model (LLM) applications and agents built with [LangChain]
 
 ## Installation
 
-Lakera ChainGuard is available on [PyPI](https://pypi.org/project/lakera_chainguard/) and can be installed via `pip`:
+Lakera ChainGuard is available on [PyPI](https://pypi.org/project/lakera-chainguard/) and can be installed via `pip`:
 
 ```sh
 pip install lakera-chainguard
