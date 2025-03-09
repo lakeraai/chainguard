@@ -60,3 +60,34 @@ jobs:
     - name: Test build
       run: |
         poetry build
+
+  backwards-compatibility:
+    runs-on: ubuntu-latest
+    name: Minimum versions compatibility test
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.10"
+
+    - name: Cache poetry install
+      uses: actions/cache@v4
+      with:
+        path: ~/.local
+        key: poetry-compatibility
+
+    - uses: snok/install-poetry@v1
+      with:
+        virtualenvs-create: true
+        virtualenvs-in-project: true
+
+    - name: Install dependencies
+      run: poetry install --no-interaction
+
+    - name: Test compatibility with minimum versions
+      env:
+        LAKERA_GUARD_API_KEY: ${{ secrets.LAKERA_GUARD_API_KEY }}
+        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      run: ./scripts/test_compatibility.sh
