@@ -68,7 +68,7 @@ class LakeraGuardWarning(RuntimeWarning):
 session = requests.Session()  # Allows persistent connection (create only once)
 
 
-class LakeraChainGuard:
+class LakeraLCGuard:
     def __init__(
         self,
         api_key: str = "",
