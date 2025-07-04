@@ -1,10 +1,10 @@
 [tool.poetry]
-name = "lakera-chainguard"
-version = "0.1.6"
+name = "lakera-lcguard"
+version = "0.2.0"
 description = "Guard your LangChain applications against prompt injection with Lakera Guard"
-homepage = "https://lakeraai.github.io/chainguard/"
-repository = "https://github.com/lakeraai/chainguard"
-documentation = "https://lakeraai.github.io/chainguard/"
+homepage = "https://lakeraai.github.io/lcguard/"
+repository = "https://github.com/lakeraai/lcguard"
+documentation = "https://lakeraai.github.io/lcguard/"
 authors = ["Frawa Vetterli <fv@lakera.ai>"]
 maintainers = ["Lakera <opensource@lakera.ai>"]
 readme = "README.md"
