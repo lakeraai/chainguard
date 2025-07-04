@@ -1,10 +1,10 @@
-site_name: Lakera ChainGuard Docs
-site_url: https://lakeraai.github.io/chainguard
-site_description: Lakera ChainGuard Docs
+site_name: Lakera LCGuard Docs
+site_url: https://lakeraai.github.io/lcguard
+site_description: Lakera LCGuard Docs
 site_author: Lakera AI
 
 repo_name: Source Code
-repo_url: https://github.com/lakeraai/chainguard
+repo_url: https://github.com/lakeraai/lcguard
 
 theme:
   name: "material"
@@ -22,7 +22,7 @@ theme:
 
     # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
-      scheme: default 
+      scheme: default
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
@@ -33,7 +33,6 @@ theme:
       toggle:
         icon: material/brightness-4
         name: Switch to system preference
-
 
 plugins:
   - search
@@ -51,15 +50,15 @@ extra:
 nav:
   - Overview: index.md
   - Tutorials:
-    - LLM Tutorial: tutorials/tutorial_llm.md
-    - Agent Tutorial: tutorials/tutorial_agent.md
-    - RAG Tutorial: tutorials/tutorial_rag.md  
+      - LLM Tutorial: tutorials/tutorial_llm.md
+      - Agent Tutorial: tutorials/tutorial_agent.md
+      - RAG Tutorial: tutorials/tutorial_rag.md
   - How-To Guides:
-    - Guarding LangChain: how-to-guides.md
-    - Redacting Personally Identifiable Information (PII): how-tos/pii-redaction.md
+      - Guarding LangChain: how-to-guides.md
+      - Redacting Personally Identifiable Information (PII): how-tos/pii-redaction.md
   - API Reference: reference.md
 
 markdown_extensions:
   - pymdownx.highlight:
       anchor_linenums: true
-  - pymdownx.superfences 
+  - pymdownx.superfences

@@ -17,16 +17,16 @@ And here's how we can implement a redaction step in our chain:
 
 ```python
 from langchain_openai import OpenAI
-from lakera_chainguard import LakeraChainGuard, LakeraGuardWarning
+from lakera_lcguard import LakeraLCGuard, LakeraGuardWarning
 
 # disable exceptions and raise a warning instead
-pii_guard = LakeraChainGuard(endpoint="pii", raise_error=False)
+pii_guard = LakeraLCGuard(endpoint="pii", raise_error=False)
 
 llm = OpenAI()
 
 # we'll pass this with our RunnableLambda to create our pii redacting step in the chain
 def redact_pii(prompt):
-    # catch any warnings raised by ChainGuard
+    # catch any warnings raised by LCGuard
     with warnings.catch_warnings(record=True, category=LakeraGuardWarning) as w:
         pii_guard.detect(prompt=prompt)
 

@@ -10,7 +10,7 @@ from langchain_core.messages import AIMessage, HumanMessage, SystemMessage
 from langchain_core.runnables import RunnableLambda, RunnableParallel
 from langchain_openai import ChatOpenAI, OpenAI
 
-from lakera_chainguard import LakeraChainGuard, LakeraGuardError, LakeraGuardWarning
+from lakera_lcguard import LakeraLCGuard, LakeraGuardError, LakeraGuardWarning
 
 api_key = os.environ.get("LAKERA_GUARD_API_KEY")
 
@@ -21,9 +21,9 @@ def setup_env():
     global chain_guard_w_warning
     global chain_guard_for_unknown_links
 
-    chain_guard = LakeraChainGuard(api_key=api_key)
+    chain_guard = LakeraLCGuard(api_key=api_key)
 
-    chain_guard_w_warning = LakeraChainGuard(api_key=api_key, raise_error=False)
+    chain_guard_w_warning = LakeraLCGuard(api_key=api_key, raise_error=False)
 
 
 def test_guard():
@@ -57,16 +57,16 @@ def test_guard():
 
 
 def test_guard_error_handling():
-    chain_guard_wrong_api_key = LakeraChainGuard(api_key="wrong1234")
+    chain_guard_wrong_api_key = LakeraLCGuard(api_key="wrong1234")
     with pytest.raises(
         ValueError,
         match=r".*Please provide a valid Lakera Guard API key.",
     ):
         chain_guard_wrong_api_key.detect("Hello")
-    chain_guard_wrong_endpoint = LakeraChainGuard(api_key=api_key, endpoint="wrong1234")
+    chain_guard_wrong_endpoint = LakeraLCGuard(api_key=api_key, endpoint="wrong1234")
     with pytest.raises(ValueError):
         chain_guard_wrong_endpoint.detect("Hello")
-    chain_guard_wrong_property = LakeraChainGuard(
+    chain_guard_wrong_property = LakeraLCGuard(
         api_key=api_key,
         endpoint="unknown_links",
         additional_json_properties={"wrong1234": ["lakera.ai"]},
@@ -80,7 +80,7 @@ def test_guard_error_handling():
 
 # this also tests the endpoint and additional_json_properties arguments
 def test_guard_for_unknown_links():
-    chain_guard_for_unknown_links = LakeraChainGuard(
+    chain_guard_for_unknown_links = LakeraLCGuard(
         api_key=api_key,
         endpoint="unknown_links",
         additional_json_properties={"domain_whitelist": ["lakera.ai"]},

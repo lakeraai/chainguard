@@ -1,4 +1,4 @@
-default_install_hook_types: [pre-commit,commit-msg, pre-push]
+default_install_hook_types: [pre-commit, commit-msg, pre-push]
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
@@ -35,7 +35,7 @@ repos:
       - id: mypy-all
         name: MyPy (all)
         pass_filenames: false
-        files: lakera_chainguard/
+        files: lakera_lcguard/
         entry: poetry run mypy .
         stages: [push]
         language: system

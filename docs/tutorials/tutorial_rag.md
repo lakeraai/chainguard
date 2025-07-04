@@ -6,7 +6,7 @@ In this demo we'll explore how we can guard our LangChain-powered RAG apps again
 
 ## Video tutorial
 
-We recorded a video tutorial that walks through the documentation below and explains how to guard a RAG chain against indirect prompt injections with ChainGuard.
+We recorded a video tutorial that walks through the documentation below and explains how to guard a RAG chain against indirect prompt injections with LCGuard.
 
 [![Watch a video tutorial](../assets/video_thumb.png)](https://youtu.be/MdZ6XnViY3o)
 
@@ -14,7 +14,7 @@ We recorded a video tutorial that walks through the documentation below and expl
 
 We'll start by importing the libraries we'll need for this demo.
 
-**Note**: To run the code from this tutorial, you'll need a [Lakera Guard API key](https://platform.lakera.ai/account/api-keys) and an [OpenAI API key](https://platform.openai.com/api-keys) set in your current environment as `LAKERA_GUARD_API_KEY` and `OPENAI_API_KEY`, or you can pass them directly into the constructors: `LakeraChainGuard(api_key="")` and `ChatOpenAI(openai_api_key="")`.
+**Note**: To run the code from this tutorial, you'll need a [Lakera Guard API key](https://platform.lakera.ai/account/api-keys) and an [OpenAI API key](https://platform.openai.com/api-keys) set in your current environment as `LAKERA_GUARD_API_KEY` and `OPENAI_API_KEY`, or you can pass them directly into the constructors: `LakeraLCGuard(api_key="")` and `ChatOpenAI(openai_api_key="")`.
 
 ```python
 import bs4
@@ -48,15 +48,15 @@ This snippet loads the context from a URL into a vector store that we'll use to 
 
 We've set up two pages for you to explore; both have the same text, but one contains an embedded prompt injection.
 
-- **No Prompt Injection**: http://lakeraai.github.io/chainguard/demos/benign-demo-page/
-- **Indirect Prompt Injection**: http://lakeraai.github.io/chainguard/demos/indirect-prompt-injection/
+- **No Prompt Injection**: http://lakeraai.github.io/lcguard/demos/benign-demo-page/
+- **Indirect Prompt Injection**: http://lakeraai.github.io/lcguard/demos/indirect-prompt-injection/
 
 See if you can tell the difference between the two pages.
 
 ```python
 loader = WebBaseLoader(
     web_paths=(
-        "http://lakeraai.github.io/chainguard/demos/indirect-prompt-injection/",
+        "http://lakeraai.github.io/lcguard/demos/indirect-prompt-injection/",
     ),
     bs_kwargs=dict(
         parse_only=bs4.SoupStrainer(
@@ -140,10 +140,10 @@ It looks like the context from our web page has some extra instructions included
 
 And when that gets included with the rest of the RAG prompt, it convinces the model to append that link to its responses.
 
-Let's see if we can guard against that with a `LakeraChainGuard` instance.
+Let's see if we can guard against that with a `LakeraLCGuard` instance.
 
 ```python
-chain_guard = LakeraChainGuard()
+chain_guard = LakeraLCGuard()
 
 # we're going to focus on the context retrieved from the 3rd party source
 def indirect_injection_detector(input):
@@ -156,7 +156,6 @@ detect_injections = RunnableLambda(indirect_injection_detector)
 ```
 
 **Note**: The LangChain Hub `rlm/rag-prompt` template seems to be identified as potential prompt injection when included in a message with `role: "user"` which is how this LangChain demo does by default. So we'll be checking the retrieved context for an indirect prompt injection separately to avoid false positives with this particular prompt template.
-
 
 And then we'll create a new, guarded chain:
 
@@ -190,7 +189,7 @@ Lakera Guard detected prompt_injection.
   'results': [
     {
       'categories': {'prompt_injection': True, 'jailbreak': False}, 'category_scores': {
-        'prompt_injection': 1.0, 
+        'prompt_injection': 1.0,
         'jailbreak': 0.0
       },
       'flagged': True,
@@ -204,4 +203,4 @@ Lakera Guard detected prompt_injection.
 }
 ```
 
-Now we're catching the indirect prompt injection from our RAG chain's context. You can switch the scraped URL to the benign example (`http://lakeraai.github.io/chainguard/demos/benign-demo-page/`) and see that the chain runs normally if it doesn't encounter prompt injections.
+Now we're catching the indirect prompt injection from our RAG chain's context. You can switch the scraped URL to the benign example (`http://lakeraai.github.io/lcguard/demos/benign-demo-page/`) and see that the chain runs normally if it doesn't encounter prompt injections.
